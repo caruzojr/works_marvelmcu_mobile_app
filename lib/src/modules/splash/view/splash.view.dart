@@ -4,7 +4,7 @@ import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 import 'package:marvel_mcu_app/src/shared/utils/redirect_delay.util.dart';
 
 import 'package:marvel_mcu_app/src/modules/splash/data/constants/all.const.dart';
-import 'package:marvel_mcu_app/src/shared/widgets/mcuLogo/view/mcuLogo.widget.dart';
+import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 
 class SplashView extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class SplashView extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Center(
-          child: McuLogoWidget(
+          child: ZLogoWidget(
             sizeLogoWidth: sizeLogoWidth,
           ),
         ),

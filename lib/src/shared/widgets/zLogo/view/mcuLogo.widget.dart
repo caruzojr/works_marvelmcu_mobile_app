@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
-import 'package:marvel_mcu_app/src/shared/widgets/mcuLogo/data/constants/all.const.dart';
+import 'package:marvel_mcu_app/src/shared/widgets/zLogo/data/constants/all.const.dart';
 
 class McuLogoWidget extends StatelessWidget {
   final double sizeLogoWidth;
