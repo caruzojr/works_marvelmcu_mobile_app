@@ -4,12 +4,14 @@ import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/data/constants/all.c
 import 'package:marvel_mcu_app/src/shared/widgets/zDrawerMenu/view/zDraweMenu.widget.dart';
 
 class ZScaffoldWidget extends StatelessWidget {
-  final String title;
+  final Widget title;
+  final bool centerTitle;
   final Widget body;
   final Widget drawer;
 
   ZScaffoldWidget({
     this.title,
+    this.centerTitle = false,
     @required this.body,
     this.drawer,
   });
@@ -19,7 +21,8 @@ class ZScaffoldWidget extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: extendBodyBehindAppBar,
       appBar: AppBar(
-        title: title != null ? Text(title) : null,
+        title: title != null ? title : null,
+        centerTitle: centerTitle,
         backgroundColor: backgroundColor,
         elevation: elevation,
       ),
