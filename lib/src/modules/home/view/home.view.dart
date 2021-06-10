@@ -1,24 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/modules/home/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/view/zScaffold.widget.dart';
 
-class HomeView extends StatelessWidget {
+import 'package:marvel_mcu_app/src/modules/home/data/models/mcufilms.model.dart';
+import 'package:marvel_mcu_app/src/modules/home/cubit/home.cubit.dart';
+
+class HomeView extends StatefulWidget {
+  final List<MCUFilmsModel> dataMCUFilms;
+
+  HomeView({
+    this.dataMCUFilms,
+  });
+
+  @override
+  _HomeViewState createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    final HomeCubit bloc = BlocProvider.of<HomeCubit>(context);
+    final Size size = MediaQuery.of(context).size;
+
     return ZScaffoldWidget(
       title: ZLogoWidget(
-        sizeLogoWidth: 120.0,
-        isLogoNegative: true,
+        sizeLogoWidth: sizeLogoWidth,
+        isLogoNegative: isLogoNegative,
       ),
-      centerTitle: true,
+      centerTitle: centerTitle,
       body: Stack(
         children: [
           Container(
-            width: double.infinity,
-            height: double.infinity,
+            width: size.width,
+            height: size.height,
             color: backgroundPage,
           ),
           Container(
@@ -29,10 +47,28 @@ class HomeView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(),
-                Positioned(
-                  bottom: 0,
-                  child: Container(
-                    child: Text("Olá Mundo"),
+                Container(
+                  width: sizeBoxTitleWelcome,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        titleWelcome.toUpperCase(),
+                        style: Theme.of(context).textTheme.headline1.copyWith(
+                              color: zAccentColor,
+                            ),
+                      ),
+                      SizedBox(height: zLayoutSpacerXXL),
+                      Container(
+                        child: Text(
+                          titleSectionMCUFilms.toUpperCase(),
+                          style: Theme.of(context).textTheme.headline3.copyWith(
+                                color: zAccentColor,
+                              ),
+                        ),
+                      ),
+                      SizedBox(height: zLayoutSpacerM),
+                    ],
                   ),
                 ),
               ],

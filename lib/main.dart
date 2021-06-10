@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'package:marvel_mcu_app/src/themes/light.theme.dart';
 import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 
 import 'package:marvel_mcu_app/src/modules/splash/view/splash.view.dart';
-import 'package:marvel_mcu_app/src/modules/home/view/home.view.dart';
+import 'package:marvel_mcu_app/src/modules/home/home.page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 final Map<String, WidgetBuilder> appRoutes = {
-  Routes.homeRouter: (BuildContext context) => HomeView(),
+  Routes.homeRouter: (BuildContext context) => HomePage(),
 };
 
 class MyApp extends StatelessWidget {
@@ -26,9 +27,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [const Locale('pt', 'BR')],
       debugShowCheckedModeBanner: false,
       title: 'Marvel MCU',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: lightTheme(),
       home: SplashView(),
       routes: appRoutes,
     );

@@ -5,3 +5,6 @@ const double zLayoutSpacerM = 16;
 const double zLayoutSpacerL = 24;
 const double zLayoutSpacerXL = 32;
 const double zLayoutSpacerXXL = 50;
+
+const double zLetterSpacingTitle = -0.5;
+const double zLineSpacingTitle = 0.9;

@@ -9,7 +9,7 @@ import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    redirectDelay(
+    redirectDelayRouter(
       context,
       routeRedirect: Routes.homeRouter,
       milliseconds: redirectMilleseconds,
