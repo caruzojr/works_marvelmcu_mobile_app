@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
+
+import 'package:marvel_mcu_app/src/modules/home/view/widgets/zCardMCUFilms/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/modules/home/data/models/mcufilms.model.dart';
 
 class ZCardMCUFilmsWidget extends StatelessWidget {
@@ -21,35 +23,35 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
         print("vc clicou em: ${film.title}");
       },
       child: Container(
-        width: 127,
+        width: areaBoxCard,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
                 Container(
-                  width: 127,
-                  height: 190,
+                  width: sizeCoverWidth,
+                  height: sizeCoverHeight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(zBorderRadiusS),
                     color: Colors.green,
                   ),
                 ),
                 Positioned(
-                  right: 0,
+                  top: positionTagNumberTop,
+                  right: positionTagNumberRight,
                   child: Container(
-                    margin: EdgeInsets.only(top: 6, right: 6),
-                    width: 24,
-                    height: 24,
+                    width: sizeTagNumberWidth,
+                    height: sizeTagNumberHeight,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(radiusTagNumber),
                       color: Colors.white,
                     ),
                     child: Center(
                       child: Text(
                         indexPosition.toString(),
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: zFontSizeM,
                           fontWeight: FontWeight.bold,
                           color: zGreyColorDefault,
                         ),
@@ -59,7 +61,7 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: zLayoutSpacerS),
             Text(
               film.title,
               style: TextStyle(
@@ -67,7 +69,7 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 4),
+            SizedBox(height: zLayoutSpacerXS),
             Text(
               "(${DateFormat.y('pt_Br').format(DateTime.parse(film.releaseDate))})",
               style: TextStyle(
