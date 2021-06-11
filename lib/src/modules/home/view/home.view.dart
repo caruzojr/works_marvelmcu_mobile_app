@@ -42,7 +42,6 @@ class _HomeViewState extends State<HomeView> {
           ),
           Container(
             margin: EdgeInsets.only(top: zMarginTopScaffold),
-            padding: EdgeInsets.all(zLayoutPaddingM),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,6 +53,8 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       Container(
                         width: sizeBoxTitleWelcome,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: zLayoutPaddingM),
                         child: Text(
                           titleWelcome.toUpperCase(),
                           style: Theme.of(context).textTheme.headline1.copyWith(
@@ -63,6 +64,8 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       SizedBox(height: zLayoutSpacerXXL),
                       Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: zLayoutPaddingM),
                         child: Text(
                           titleSectionMCUFilms.toUpperCase(),
                           style: Theme.of(context).textTheme.headline3.copyWith(
@@ -72,16 +75,27 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       SizedBox(height: zLayoutSpacerM),
                       Container(
+                        margin: EdgeInsets.only(bottom: zLayoutSpacerXL),
                         width: size.width,
-                        height: 200,
-                        color: Colors.amber,
-                        child: ListView.builder(
-                          itemCount: widget.dataMCUFilms.length,
-                          itemBuilder: (context, index) {
-                            return ZCardMCUFilmsWidget(
-                              film: widget.dataMCUFilms[index],
-                            );
-                          },
+                        height: 250,
+                        child: MediaQuery.removePadding(
+                          context: context,
+                          removeTop: true,
+                          child: ListView.separated(
+                            separatorBuilder: (context, index) =>
+                                SizedBox(width: zLayoutSpacerM),
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: zLayoutSpacerM),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: widget.dataMCUFilms.length,
+                            itemBuilder: (context, index) {
+                              return ZCardMCUFilmsWidget(
+                                film: widget.dataMCUFilms[index],
+                                indexPosition: index + 1,
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ],
