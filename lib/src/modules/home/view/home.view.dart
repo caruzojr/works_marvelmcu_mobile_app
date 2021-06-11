@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_mcu_app/src/modules/home/view/widgets/zCardMCUFilms/view/zCardMCUFilms.widget.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/modules/home/data/constants/all.const.dart';
@@ -48,15 +49,17 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 Container(),
                 Container(
-                  width: sizeBoxTitleWelcome,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        titleWelcome.toUpperCase(),
-                        style: Theme.of(context).textTheme.headline1.copyWith(
-                              color: zAccentColor,
-                            ),
+                      Container(
+                        width: sizeBoxTitleWelcome,
+                        child: Text(
+                          titleWelcome.toUpperCase(),
+                          style: Theme.of(context).textTheme.headline1.copyWith(
+                                color: zAccentColor,
+                              ),
+                        ),
                       ),
                       SizedBox(height: zLayoutSpacerXXL),
                       Container(
@@ -68,6 +71,19 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                       SizedBox(height: zLayoutSpacerM),
+                      Container(
+                        width: size.width,
+                        height: 200,
+                        color: Colors.amber,
+                        child: ListView.builder(
+                          itemCount: widget.dataMCUFilms.length,
+                          itemBuilder: (context, index) {
+                            return ZCardMCUFilmsWidget(
+                              film: widget.dataMCUFilms[index],
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
