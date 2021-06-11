@@ -6,6 +6,7 @@ import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 
 import 'package:marvel_mcu_app/src/modules/splash/view/splash.view.dart';
 import 'package:marvel_mcu_app/src/modules/home/home.page.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/detailsFilm.page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +14,7 @@ void main() {
 
 final Map<String, WidgetBuilder> appRoutes = {
   Routes.homeRouter: (BuildContext context) => HomePage(),
+  Routes.detailsFilmRouter: (BuildContext context) => DetailsFilmPage(),
 };
 
 class MyApp extends StatelessWidget {

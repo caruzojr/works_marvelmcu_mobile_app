@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 
 import 'package:marvel_mcu_app/src/modules/home/view/widgets/zCardMCUFilms/data/constants/all.const.dart';
@@ -21,6 +22,7 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         print("vc clicou em: ${film.title}");
+        Navigator.of(context).pushNamed(Routes.detailsFilmRouter);
       },
       child: Container(
         width: areaBoxCard,
@@ -34,7 +36,7 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
                   height: sizeCoverHeight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(zBorderRadiusS),
-                    color: Colors.green,
+                    color: zGreyColorDefault,
                   ),
                 ),
                 Positioned(

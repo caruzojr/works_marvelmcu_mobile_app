@@ -9,4 +9,5 @@ class EndPoints {
 
 class Routes {
   static const homeRouter = "/home";
+  static const detailsFilmRouter = "/detailsFilm";
 }
