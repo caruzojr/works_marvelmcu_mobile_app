@@ -6,6 +6,7 @@ import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 
 import 'package:marvel_mcu_app/src/modules/home/view/widgets/zCardMCUFilms/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/modules/home/data/models/mcufilms.model.dart';
+import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.widget.dart';
 
 class ZCardMCUFilmsWidget extends StatelessWidget {
   final MCUFilmsModel film;
@@ -21,47 +22,16 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print("vc clicou em: ${film.title}");
-        Navigator.of(context).pushNamed(Routes.detailsFilmRouter);
+        Navigator.of(context).pushNamed(Routes.detailsFilmRouter,
+            arguments: {"id": film.id, "positionMCUFilm": indexPosition});
       },
       child: Container(
         width: areaBoxCard,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                Container(
-                  width: sizeCoverWidth,
-                  height: sizeCoverHeight,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(zBorderRadiusS),
-                    color: zGreyColorDefault,
-                  ),
-                ),
-                Positioned(
-                  top: positionTagNumberTop,
-                  right: positionTagNumberRight,
-                  child: Container(
-                    width: sizeTagNumberWidth,
-                    height: sizeTagNumberHeight,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(radiusTagNumber),
-                      color: Colors.white,
-                    ),
-                    child: Center(
-                      child: Text(
-                        indexPosition.toString(),
-                        style: TextStyle(
-                          fontSize: zFontSizeM,
-                          fontWeight: FontWeight.bold,
-                          color: zGreyColorDefault,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            ZCoverFilmWidget(
+              positionMCUFilm: indexPosition,
             ),
             SizedBox(height: zLayoutSpacerS),
             Text(

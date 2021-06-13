@@ -26,7 +26,7 @@ class ZScaffoldWidget extends StatelessWidget {
         backgroundColor: backgroundColor,
         elevation: elevation,
       ),
-      drawer: drawer != null ? drawer : ZDrawerMenuWidget(),
+      drawer: drawer != null ? drawer : null,
       body: body,
     );
   }

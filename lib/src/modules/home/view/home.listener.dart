@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:marvel_mcu_app/src/shared/widgets/zPageLoading/view/zPageLoading.widget.dart';
-import 'package:marvel_mcu_app/src/shared/widgets/zPageError/view/zPageError.widget.dart';
 
 import 'package:marvel_mcu_app/src/modules/home/cubit/home.cubit.dart';
 import 'package:marvel_mcu_app/src/modules/home/view/home.view.dart';
