@@ -10,6 +10,7 @@ const double headerCloseBtnPositionRight = 24;
 const double headerLogoPositionLeft = 24;
 const double headerLogoPositionBottom = 24;
 const double headerLogoSizeWidth = 170;
+const bool headerIsLogoNegative = true;
 
 const double paddingTitleSectionHorizontal = 16;
 const double paddingTitleSectionVertical = 24;

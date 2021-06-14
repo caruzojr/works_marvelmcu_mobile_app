@@ -79,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
                       Container(
                         margin: EdgeInsets.only(bottom: zLayoutSpacerXL),
                         width: size.width,
-                        height: 250,
+                        height: sizeBoxAreaTimeLine,
                         child: MediaQuery.removePadding(
                           context: context,
                           removeTop: true,

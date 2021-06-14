@@ -43,7 +43,7 @@ class ZDrawerMenuWidget extends StatelessWidget {
                 bottom: headerLogoPositionBottom,
                 child: ZLogoWidget(
                   sizeLogoWidth: headerLogoSizeWidth,
-                  isLogoNegative: true,
+                  isLogoNegative: headerIsLogoNegative,
                 ),
               ),
             ],

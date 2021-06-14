@@ -22,8 +22,10 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(Routes.detailsFilmRouter,
-            arguments: {"id": film.id, "positionMCUFilm": indexPosition});
+        Navigator.of(context).pushNamed(Routes.detailsFilmRouter, arguments: {
+          argumentURL: film.id,
+          argumentPositionMCUFilm: indexPosition
+        });
       },
       child: Container(
         width: areaBoxCard,

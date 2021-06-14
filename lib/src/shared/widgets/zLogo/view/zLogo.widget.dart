@@ -9,7 +9,7 @@ class ZLogoWidget extends StatelessWidget {
 
   ZLogoWidget({
     this.sizeLogoWidth = sizeDefaultLogoWidth,
-    this.isLogoNegative = false,
+    this.isLogoNegative = defaultIsLogoNegative,
   });
 
   @override

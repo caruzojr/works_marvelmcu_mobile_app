@@ -11,7 +11,7 @@ class ZScaffoldWidget extends StatelessWidget {
 
   ZScaffoldWidget({
     this.title,
-    this.centerTitle = false,
+    this.centerTitle = defaultCenterTitle,
     @required this.body,
     this.drawer,
   });
