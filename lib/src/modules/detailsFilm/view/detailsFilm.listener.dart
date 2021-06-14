@@ -17,10 +17,14 @@ class _DetailsFilmListenerState extends State<DetailsFilmListener> {
     return BlocBuilder<DetailsFilmCubit, DetailsFilmState>(
       bloc: BlocProvider.of<DetailsFilmCubit>(context),
       builder: (BuildContext context, DetailsFilmState state) {
-        if (state is DetailsFilmInProgress) {
+        if (state is DetailsFilmSuccess) {
+          return DetailsFilmView(
+            dataDetailsFilm: state.dataDetailsFilm,
+          );
+        } else if (state is DetailsFilmInProgress) {
           return ZPageLoadingWidget();
         } else {
-          return DetailsFilmView();
+          return Container();
         }
       },
     );

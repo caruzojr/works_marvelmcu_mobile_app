@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.widget.dart';
@@ -10,6 +12,12 @@ import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/view/zScaffold.widge
 import 'package:marvel_mcu_app/src/modules/detailsFilm/cubit/detailsFilm.cubit.dart';
 
 class DetailsFilmView extends StatefulWidget {
+  final FilmModel dataDetailsFilm;
+
+  DetailsFilmView({
+    this.dataDetailsFilm,
+  });
+
   @override
   _DetailsFilmViewState createState() => _DetailsFilmViewState();
 }
@@ -19,10 +27,6 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
   Widget build(BuildContext context) {
     final DetailsFilmCubit bloc = BlocProvider.of<DetailsFilmCubit>(context);
     final Size size = MediaQuery.of(context).size;
-
-    final Map arguments = ModalRoute.of(context).settings.arguments;
-    //final int idFilm = arguments["id"];
-    final int positionMCUFilm = arguments["positionMCUFilm"];
 
     return ZScaffoldWidget(
       title: ZLogoWidget(
@@ -46,31 +50,34 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ZCoverFilmWidget(positionMCUFilm: positionMCUFilm),
+                    ZCoverFilmWidget(positionMCUFilm: bloc.positionMCUFilm),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "2011",
-                          style: TextStyle(color: Colors.white),
+                          "(${DateFormat.y('pt_Br').format(DateTime.parse(widget.dataDetailsFilm.releaseDate))})",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontStyle: FontStyle.italic,
+                          ),
                         ),
                         SizedBox(height: zLayoutSpacerS),
                         Text(
-                          "Nome do Filme aqui",
-                          style: TextStyle(color: Colors.white),
+                          widget.dataDetailsFilm.title,
+                          style: TextStyle(color: Colors.red),
                         ),
                         SizedBox(height: zLayoutSpacerM),
                         Text(
-                          "29/11/2011 (BR)",
-                          style: TextStyle(color: Colors.white),
+                          "${widget.dataDetailsFilm.releaseDate} (BR)",
+                          style: TextStyle(color: Colors.red),
                         ),
                         Text(
                           "Ação, Aventura, Ficção cientifica",
                           style: TextStyle(color: Colors.white),
                         ),
                         Text(
-                          "2h 4m",
-                          style: TextStyle(color: Colors.white),
+                          widget.dataDetailsFilm.runtime.toString(),
+                          style: TextStyle(color: Colors.red),
                         ),
                         SizedBox(height: zLayoutSpacerM),
                         Text(
@@ -93,8 +100,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                             style: TextStyle(color: Colors.white),
                           ),
                           Text(
-                            "Título Original",
-                            style: TextStyle(color: Colors.white),
+                            widget.dataDetailsFilm.originalTitle,
+                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
@@ -108,8 +115,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                             style: TextStyle(color: Colors.white),
                           ),
                           Text(
-                            "Inglês",
-                            style: TextStyle(color: Colors.white),
+                            widget.dataDetailsFilm.originalLanguage,
+                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
@@ -125,8 +132,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                         style: TextStyle(color: Colors.white),
                       ),
                       Text(
-                        "Conteúdo da descrição do filme",
-                        style: TextStyle(color: Colors.white),
+                        widget.dataDetailsFilm.overview,
+                        style: TextStyle(color: Colors.red),
                       ),
                     ],
                   ),
@@ -158,8 +165,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                             style: TextStyle(color: Colors.white),
                           ),
                           Text(
-                            "Lançado",
-                            style: TextStyle(color: Colors.white),
+                            widget.dataDetailsFilm.status,
+                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
@@ -178,8 +185,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                             style: TextStyle(color: Colors.white),
                           ),
                           Text(
-                            "140,000,000.00",
-                            style: TextStyle(color: Colors.white),
+                            widget.dataDetailsFilm.budget.toString(),
+                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
@@ -193,8 +200,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                             style: TextStyle(color: Colors.white),
                           ),
                           Text(
-                            "370,569,774.00",
-                            style: TextStyle(color: Colors.white),
+                            widget.dataDetailsFilm.revenue.toString(),
+                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
