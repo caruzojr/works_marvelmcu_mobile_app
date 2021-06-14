@@ -4,6 +4,7 @@ import 'package:marvel_mcu_app/src/modules/home/view/widgets/zCardMCUFilms/view/
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/modules/home/data/constants/all.const.dart';
+import 'package:marvel_mcu_app/src/shared/widgets/zDrawerMenu/view/zDraweMenu.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/view/zScaffold.widget.dart';
 
@@ -33,6 +34,7 @@ class _HomeViewState extends State<HomeView> {
         isLogoNegative: isLogoNegative,
       ),
       centerTitle: centerTitle,
+      drawer: ZDrawerMenuWidget(),
       body: Stack(
         children: [
           Container(
