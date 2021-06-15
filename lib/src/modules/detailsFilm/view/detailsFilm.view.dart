@@ -43,33 +43,47 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
           ),
           Container(
             margin: EdgeInsets.only(top: zMarginTopScaffold),
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(zLayoutPaddingM),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ZCoverFilmWidget(positionMCUFilm: bloc.positionMCUFilm),
+                    Container(
+                      margin: EdgeInsets.only(right: zLayoutMarginM),
+                      child: ZCoverFilmWidget(
+                        positionMCUFilm: bloc.positionMCUFilm,
+                      ),
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "(${DateFormat.y('pt_Br').format(DateTime.parse(widget.dataDetailsFilm.releaseDate))})",
                           style: TextStyle(
-                            color: Colors.red,
+                            color: zAccentColor,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
-                        SizedBox(height: zLayoutSpacerS),
-                        Text(
-                          widget.dataDetailsFilm.title,
-                          style: TextStyle(color: Colors.red),
+                        SizedBox(height: zLayoutSpacerXS),
+                        Container(
+                          width: 200,
+                          child: Text(
+                            widget.dataDetailsFilm.title,
+                            style:
+                                Theme.of(context).textTheme.headline3.copyWith(
+                                      color: zAccentColor,
+                                    ),
+                          ),
                         ),
-                        SizedBox(height: zLayoutSpacerM),
+                        SizedBox(height: zLayoutSpacerL),
                         Text(
-                          "${widget.dataDetailsFilm.releaseDate} (BR)",
-                          style: TextStyle(color: Colors.red),
+                          "${DateFormat.yMd('pt_Br').format(DateTime.parse(widget.dataDetailsFilm.releaseDate))} (BR)",
+                          style: TextStyle(color: zAccentColor),
+                        ),
+                        Container(
+                          child: Text("list"),
                         ),
                         Text(
                           "Ação, Aventura, Ficção cientifica",

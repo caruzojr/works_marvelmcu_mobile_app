@@ -10,6 +10,7 @@ class EndPoints {
 }
 
 class Routes {
+  static const splashRouter = "/splash";
   static const homeRouter = "/home";
   static const detailsFilmRouter = "/detailsFilm";
 }

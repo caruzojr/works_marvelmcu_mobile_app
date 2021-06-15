@@ -14,6 +14,10 @@ Future push(BuildContext context, Widget page, {bool replace = false}) {
   }));
 }
 
-Future pushNamed(BuildContext context, String router) {
+Future pushNamed(BuildContext context, String router, {bool replace = false}) {
+  if (replace) {
+    return Navigator.of(context).pushReplacementNamed(router);
+  }
+
   return Navigator.of(context).pushNamed(router);
 }

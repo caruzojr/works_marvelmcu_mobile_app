@@ -10,7 +10,7 @@ Future redirectDelayRouter(
   await Future.delayed(
     Duration(milliseconds: milliseconds),
     () {
-      pushNamed(context, routeRedirect);
+      pushNamed(context, routeRedirect, replace: replace);
     },
   );
 }

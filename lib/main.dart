@@ -13,6 +13,7 @@ void main() {
 }
 
 final Map<String, WidgetBuilder> appRoutes = {
+  Routes.splashRouter: (BuildContext context) => SplashView(),
   Routes.homeRouter: (BuildContext context) => HomePage(),
   Routes.detailsFilmRouter: (BuildContext context) => DetailsFilmPage(),
 };
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Marvel MCU',
       theme: lightTheme(),
-      home: SplashView(),
+      initialRoute: Routes.splashRouter,
       routes: appRoutes,
     );
   }
