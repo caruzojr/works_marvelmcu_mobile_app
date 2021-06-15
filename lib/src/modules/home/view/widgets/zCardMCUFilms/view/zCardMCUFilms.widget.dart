@@ -39,7 +39,6 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
             Text(
               film.title,
               style: TextStyle(
-                color: zAccentColor,
                 fontWeight: FontWeight.bold,
               ),
             ),

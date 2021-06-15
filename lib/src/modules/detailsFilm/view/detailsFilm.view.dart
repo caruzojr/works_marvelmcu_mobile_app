@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
+import 'package:marvel_mcu_app/src/shared/utils/idioma.util.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.widget.dart';
 
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
@@ -62,160 +63,148 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                         Text(
                           "(${DateFormat.y('pt_Br').format(DateTime.parse(widget.dataDetailsFilm.releaseDate))})",
                           style: TextStyle(
-                            color: zAccentColor,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
                         SizedBox(height: zLayoutSpacerXS),
                         Container(
-                          width: 200,
+                          width: size.width - 190,
                           child: Text(
                             widget.dataDetailsFilm.title,
-                            style:
-                                Theme.of(context).textTheme.headline3.copyWith(
-                                      color: zAccentColor,
-                                    ),
+                            style: Theme.of(context).textTheme.headline3,
                           ),
                         ),
                         SizedBox(height: zLayoutSpacerL),
                         Text(
                           "${DateFormat.yMd('pt_Br').format(DateTime.parse(widget.dataDetailsFilm.releaseDate))} (BR)",
-                          style: TextStyle(color: zAccentColor),
                         ),
                         Container(
-                          child: Text("list"),
-                        ),
-                        Text(
-                          "Ação, Aventura, Ficção cientifica",
-                          style: TextStyle(color: Colors.white),
+                          width: size.width - 190,
+                          height: 16,
+                          child: ListView.separated(
+                            separatorBuilder: (context, index) => Text(", "),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: widget.dataDetailsFilm.genres.length,
+                            itemBuilder: (context, index) {
+                              return Text(
+                                  widget.dataDetailsFilm.genres[index].name);
+                            },
+                          ),
                         ),
                         Text(
                           widget.dataDetailsFilm.runtime.toString(),
-                          style: TextStyle(color: Colors.red),
                         ),
                         SizedBox(height: zLayoutSpacerM),
-                        Text(
-                          "12",
-                          style: TextStyle(color: Colors.white),
-                        ),
+                        Text("12"),
                       ],
                     ),
                   ],
                 ),
+                SizedBox(height: zLayoutSpacerXXL),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      width: (size.width / 2) - 24,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Título Original".toUpperCase(),
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          Text("Título Original".toUpperCase()),
+                          SizedBox(height: zLayoutSpacerS),
                           Text(
                             widget.dataDetailsFilm.originalTitle,
-                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
                     ),
                     Container(
+                      width: (size.width / 2) - 24,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text("Idioma Original".toUpperCase()),
+                          SizedBox(height: zLayoutSpacerS),
                           Text(
-                            "Título Original".toUpperCase(),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            widget.dataDetailsFilm.originalLanguage,
-                            style: TextStyle(color: Colors.red),
+                            IdiomaUtils.decoder(
+                                widget.dataDetailsFilm.originalLanguage),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
+                SizedBox(height: zLayoutSpacerXL),
                 Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Sinopse".toUpperCase(),
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      Text("Sinopse".toUpperCase()),
+                      SizedBox(height: zLayoutSpacerS),
                       Text(
                         widget.dataDetailsFilm.overview,
-                        style: TextStyle(color: Colors.red),
                       ),
                     ],
                   ),
                 ),
+                SizedBox(height: zLayoutSpacerXL),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      width: (size.width / 2) - 24,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Diretor".toUpperCase(),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            "Nome",
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          Text("Diretor".toUpperCase()),
+                          SizedBox(height: zLayoutSpacerS),
+                          Text("Nome"),
                         ],
                       ),
                     ),
                     Container(
+                      width: (size.width / 2) - 24,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Situação".toUpperCase(),
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          Text("Situação".toUpperCase()),
+                          SizedBox(height: zLayoutSpacerS),
                           Text(
                             widget.dataDetailsFilm.status,
-                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
+                SizedBox(height: zLayoutSpacerXL),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      width: (size.width / 2) - 24,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Orçamento".toUpperCase(),
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          Text("Orçamento".toUpperCase()),
+                          SizedBox(height: zLayoutSpacerS),
                           Text(
                             widget.dataDetailsFilm.budget.toString(),
-                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),
                     ),
                     Container(
+                      width: (size.width / 2) - 24,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Receita".toUpperCase(),
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          Text("Receita".toUpperCase()),
+                          SizedBox(height: zLayoutSpacerS),
                           Text(
                             widget.dataDetailsFilm.revenue.toString(),
-                            style: TextStyle(color: Colors.red),
                           ),
                         ],
                       ),

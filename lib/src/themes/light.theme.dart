@@ -28,6 +28,7 @@ ThemeData lightTheme() {
         letterSpacing: zLetterSpacingTitle,
       ),
       bodyText2: TextStyle(
+        color: zTextColorDefault,
         fontSize: 12,
         height: 1.3,
       ),

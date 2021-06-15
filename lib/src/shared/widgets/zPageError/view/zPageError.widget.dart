@@ -47,15 +47,12 @@ class ZPageErrorWidget extends StatelessWidget {
                   SizedBox(height: zLayoutSpacerXXL),
                   Text(
                     titleSorry.toUpperCase(),
-                    style: Theme.of(context).textTheme.headline2.copyWith(
-                          color: zAccentColor,
-                        ),
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
                     descriptionSorry,
                     style: TextStyle(
                       fontSize: zFontSizeL,
-                      color: Theme.of(context).accentColor,
                     ),
                   ),
                   SizedBox(height: zLayoutSpacerL),
@@ -69,7 +66,6 @@ class ZPageErrorWidget extends StatelessWidget {
                                   child: Text(
                                     titleCodError.toUpperCase(),
                                     style: TextStyle(
-                                      color: Theme.of(context).accentColor,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -77,9 +73,6 @@ class ZPageErrorWidget extends StatelessWidget {
                                 Container(
                                   child: Text(
                                     error.statusCode.toString(),
-                                    style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                    ),
                                   ),
                                 ),
                               ],
@@ -91,7 +84,6 @@ class ZPageErrorWidget extends StatelessWidget {
                                   child: Text(
                                     titleDescriptionError.toUpperCase(),
                                     style: TextStyle(
-                                      color: Theme.of(context).accentColor,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -99,9 +91,6 @@ class ZPageErrorWidget extends StatelessWidget {
                                 Container(
                                   child: Text(
                                     error.reasonPhrase,
-                                    style: TextStyle(
-                                      color: Theme.of(context).accentColor,
-                                    ),
                                   ),
                                 ),
                               ],
@@ -119,7 +108,7 @@ class ZPageErrorWidget extends StatelessWidget {
                   SvgPicture.asset(
                     iconAlertError,
                     width: sizeWidthIconAlertError,
-                    color: Theme.of(context).accentColor,
+                    color: zTextColorDefault,
                   ),
                   error.statusCode != statusCodeGenericError
                       ? Column(
@@ -127,12 +116,7 @@ class ZPageErrorWidget extends StatelessWidget {
                             SizedBox(height: zLayoutSpacerL),
                             Text(
                               error.statusCode.toString(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1
-                                  .copyWith(
-                                    color: zAccentColor,
-                                  ),
+                              style: Theme.of(context).textTheme.headline1,
                             ),
                           ],
                         )

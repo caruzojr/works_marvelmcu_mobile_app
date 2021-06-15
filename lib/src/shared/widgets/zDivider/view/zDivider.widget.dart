@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zDivider/data/constants/all.const.dart';
 
 class ZDividerWidget extends StatelessWidget {
@@ -10,7 +9,7 @@ class ZDividerWidget extends StatelessWidget {
   final double thickness;
 
   ZDividerWidget({
-    this.color = zTextColorDefault,
+    this.color = Colors.black,
     this.colorOpacity = dividerContentColorOpacity,
     this.height = dividerContentHeight,
     this.thickness = dividerContentThickness,

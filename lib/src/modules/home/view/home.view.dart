@@ -59,9 +59,7 @@ class _HomeViewState extends State<HomeView> {
                             EdgeInsets.symmetric(horizontal: zLayoutPaddingM),
                         child: Text(
                           titleWelcome.toUpperCase(),
-                          style: Theme.of(context).textTheme.headline1.copyWith(
-                                color: zAccentColor,
-                              ),
+                          style: Theme.of(context).textTheme.headline1,
                         ),
                       ),
                       SizedBox(height: zLayoutSpacerXXL),
@@ -70,9 +68,7 @@ class _HomeViewState extends State<HomeView> {
                             EdgeInsets.symmetric(horizontal: zLayoutPaddingM),
                         child: Text(
                           titleSectionMCUFilms.toUpperCase(),
-                          style: Theme.of(context).textTheme.headline3.copyWith(
-                                color: zAccentColor,
-                              ),
+                          style: Theme.of(context).textTheme.headline3,
                         ),
                       ),
                       SizedBox(height: zLayoutSpacerM),

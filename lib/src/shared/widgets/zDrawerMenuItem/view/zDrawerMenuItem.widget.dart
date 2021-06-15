@@ -31,7 +31,12 @@ class ZDrawerMenuItemWidget extends StatelessWidget {
                     child: SvgPicture.asset(iconItem),
                   )
                 : Container(),
-            Text(textItem),
+            Text(
+              textItem,
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
             Spacer(),
             Icon(
               Icons.arrow_forward,
