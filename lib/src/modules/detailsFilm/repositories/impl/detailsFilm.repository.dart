@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 import 'package:flutter/foundation.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/credits_film.model.dart';
 
 import 'package:marvel_mcu_app/src/modules/detailsFilm/repositories/idetailsFilm.repository.dart';
 import 'package:marvel_mcu_app/src/shared/services/idetailFilm.service.dart';
@@ -29,6 +30,17 @@ class DetailsFilmRepository implements IDetailsFilmRepository {
     final jsonResponse = convert.json.decode(result.body);
     ClassificationFilmModel classificationsFilm =
         new ClassificationFilmModel.fromJson(jsonResponse);
+
+    return classificationsFilm;
+  }
+
+  @override
+  Future<CreditsFilmModel> getCreditsFilm(int idFilm) async {
+    final result = await service.getCreditsFilm(idFilm);
+
+    final jsonResponse = convert.json.decode(result.body);
+    CreditsFilmModel classificationsFilm =
+        new CreditsFilmModel.fromJson(jsonResponse);
 
     return classificationsFilm;
   }
