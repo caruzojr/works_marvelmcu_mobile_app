@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
-import 'package:marvel_mcu_app/src/shared/utils/idioma.util.dart';
-import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.widget.dart';
+import 'package:marvel_mcu_app/src/shared/utils/pipe_decoder.util.dart';
+import 'package:marvel_mcu_app/src/shared/utils/minutes_in_hours.util.dart';
 
+import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/view/zScaffold.widget.dart';
 
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/cubit/detailsFilm.cubit.dart';
 
 class DetailsFilmView extends StatefulWidget {
@@ -28,6 +29,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
   Widget build(BuildContext context) {
     final DetailsFilmCubit bloc = BlocProvider.of<DetailsFilmCubit>(context);
     final Size size = MediaQuery.of(context).size;
+    final NumberFormat price = NumberFormat("#,##0.00", "en");
 
     return ZScaffoldWidget(
       title: ZLogoWidget(
@@ -92,7 +94,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           ),
                         ),
                         Text(
-                          widget.dataDetailsFilm.runtime.toString(),
+                          minutesInHours(widget.dataDetailsFilm.runtime),
                         ),
                         SizedBox(height: zLayoutSpacerM),
                         Text("12"),
@@ -126,7 +128,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           Text("Idioma Original".toUpperCase()),
                           SizedBox(height: zLayoutSpacerS),
                           Text(
-                            IdiomaUtils.decoder(
+                            PipeDecoderUtils.initialsIdiomaDecoder(
                                 widget.dataDetailsFilm.originalLanguage),
                           ),
                         ],
@@ -171,7 +173,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           Text("Situação".toUpperCase()),
                           SizedBox(height: zLayoutSpacerS),
                           Text(
-                            widget.dataDetailsFilm.status,
+                            PipeDecoderUtils.situationDecoder(
+                                widget.dataDetailsFilm.status),
                           ),
                         ],
                       ),
@@ -191,7 +194,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           Text("Orçamento".toUpperCase()),
                           SizedBox(height: zLayoutSpacerS),
                           Text(
-                            widget.dataDetailsFilm.budget.toString(),
+                            "\$ ${price.format(widget.dataDetailsFilm.budget)}",
+                            style: Theme.of(context).textTheme.headline3,
                           ),
                         ],
                       ),
@@ -204,7 +208,8 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           Text("Receita".toUpperCase()),
                           SizedBox(height: zLayoutSpacerS),
                           Text(
-                            widget.dataDetailsFilm.revenue.toString(),
+                            "\$ ${price.format(widget.dataDetailsFilm.revenue)}",
+                            style: Theme.of(context).textTheme.headline3,
                           ),
                         ],
                       ),

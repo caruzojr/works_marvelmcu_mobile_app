@@ -5,6 +5,7 @@ import 'package:marvel_mcu_app/src/modules/detailsFilm/repositories/idetailsFilm
 import 'package:marvel_mcu_app/src/shared/services/idetailFilm.service.dart';
 
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/classification_film.model.dart';
 
 class DetailsFilmRepository implements IDetailsFilmRepository {
   final IDetailsFilmService service;
@@ -19,5 +20,20 @@ class DetailsFilmRepository implements IDetailsFilmRepository {
     FilmModel detailFilm = new FilmModel.fromJson(jsonResponse);
 
     return detailFilm;
+  }
+
+  @override
+  Future<List<ClassificationFilmModel>> getClassificarionsFilm(
+      int idFilm) async {
+    final result = await service.getDetailsFilm(idFilm);
+
+    List classificationsFilm = convert.json.decode(result.body);
+
+    final listClassificationsFilm = classificationsFilm
+        .map<ClassificationFilmModel>(
+            (map) => ClassificationFilmModel.fromJson(map))
+        .toList();
+
+    return listClassificationsFilm;
   }
 }
