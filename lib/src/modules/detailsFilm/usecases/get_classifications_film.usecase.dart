@@ -12,6 +12,6 @@ class GetClassigicationsFilmUseCase {
     this.idFilm,
   });
 
-  Future<List<ClassificationFilmModel>> call(idFilm) =>
+  Future<ClassificationFilmModel> call(idFilm) =>
       repository.getClassificarionsFilm(idFilm);
 }

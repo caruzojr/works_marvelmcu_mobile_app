@@ -3,5 +3,5 @@ import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/classificatio
 
 abstract class IDetailsFilmRepository {
   Future<FilmModel> getDetailsFilm(int idFilm);
-  Future<List<ClassificationFilmModel>> getClassificarionsFilm(int idFilm);
+  Future<ClassificationFilmModel> getClassificarionsFilm(int idFilm);
 }

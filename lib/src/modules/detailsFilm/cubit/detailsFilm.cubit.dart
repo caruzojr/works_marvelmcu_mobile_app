@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/classification_film.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.view.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/usecases/get_classifications_film.usecase.dart';
@@ -52,14 +53,24 @@ class DetailsFilmCubit extends Cubit<DetailsFilmState> {
   }
 
   getClassificationsFilm(int idFilm) async {
-    dataFilm = dataFilm.copyWith(classification: "18");
+    try {
+      ClassificationFilmModel data =
+          await getClassificationsFilmUseCase(idFilm);
 
-    emit(DetailsFilmSuccess(dataDetailsFilm: dataFilm));
-    // try {
-    //   FilmModel data = await getDetailsFilmUseCase(idFilm);
-    //   emit(DetailsFilmSuccess(dataDetailsFilm: data));
-    // } catch (error) {
-    //   emit(DetailsFilmFailure(error: error.toString()));
-    // }
+      List<ResultsModels> results = data.results;
+
+      results.map((result) {
+        if (result.iso31661 == "BR") {
+          dataFilm = dataFilm.copyWith(
+              classification: "${result.releaseDates[0].certification}");
+          return result;
+        }
+        return null;
+      }).toList();
+
+      emit(DetailsFilmSuccess(dataDetailsFilm: dataFilm));
+    } catch (error) {
+      emit(DetailsFilmFailure(error: error.toString()));
+    }
   }
 }

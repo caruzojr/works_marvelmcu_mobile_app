@@ -23,17 +23,13 @@ class DetailsFilmRepository implements IDetailsFilmRepository {
   }
 
   @override
-  Future<List<ClassificationFilmModel>> getClassificarionsFilm(
-      int idFilm) async {
-    final result = await service.getDetailsFilm(idFilm);
+  Future<ClassificationFilmModel> getClassificarionsFilm(int idFilm) async {
+    final result = await service.getClassificationsFilm(idFilm);
 
-    List classificationsFilm = convert.json.decode(result.body);
+    final jsonResponse = convert.json.decode(result.body);
+    ClassificationFilmModel classificationsFilm =
+        new ClassificationFilmModel.fromJson(jsonResponse);
 
-    final listClassificationsFilm = classificationsFilm
-        .map<ClassificationFilmModel>(
-            (map) => ClassificationFilmModel.fromJson(map))
-        .toList();
-
-    return listClassificationsFilm;
+    return classificationsFilm;
   }
 }

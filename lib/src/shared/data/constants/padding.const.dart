@@ -1,4 +1,5 @@
 const double zLayoutPaddingZERO = 0;
+const double zLayoutPaddingXXS = 2;
 const double zLayoutPaddingXS = 4;
 const double zLayoutPaddingS = 8;
 const double zLayoutPaddingM = 16;

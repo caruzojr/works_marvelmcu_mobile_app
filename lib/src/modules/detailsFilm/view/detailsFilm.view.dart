@@ -97,8 +97,20 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           minutesInHours(widget.dataDetailsFilm.runtime),
                         ),
                         SizedBox(height: zLayoutSpacerM),
-                        Text(
-                          widget.dataDetailsFilm.classification,
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: zLayoutPaddingXS,
+                              vertical: zLayoutPaddingXXS),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                            color: zTextColorDefault,
+                          )),
+                          child: Center(
+                            child: Text(
+                              widget.dataDetailsFilm.classification,
+                              style: TextStyle(fontSize: zFontSizeM),
+                            ),
+                          ),
                         ),
                       ],
                     ),

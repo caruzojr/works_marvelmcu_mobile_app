@@ -42,7 +42,7 @@ class DetailsFilmService implements IDetailsFilmService {
   }
 
   @override
-  Future<http.Response> getClassificationFilm(int idFilm) async {
+  Future<http.Response> getClassificationsFilm(int idFilm) async {
     var endpoint = Uri.https(
       '${BaseEndPoints.urlTheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/release_dates',

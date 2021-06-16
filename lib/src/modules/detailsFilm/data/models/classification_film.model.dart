@@ -1,15 +1,18 @@
 class ClassificationFilmModel {
   int id;
-  List<Results> results;
+  List<ResultsModels> results;
 
-  ClassificationFilmModel({this.id, this.results});
+  ClassificationFilmModel({
+    this.id,
+    this.results,
+  });
 
   ClassificationFilmModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     if (json['results'] != null) {
-      results = new List<Results>();
+      results = new List<ResultsModels>();
       json['results'].forEach((v) {
-        results.add(new Results.fromJson(v));
+        results.add(new ResultsModels.fromJson(v));
       });
     }
   }
@@ -24,13 +27,13 @@ class ClassificationFilmModel {
   }
 }
 
-class Results {
+class ResultsModels {
   String iso31661;
   List<ReleaseDates> releaseDates;
 
-  Results({this.iso31661, this.releaseDates});
+  ResultsModels({this.iso31661, this.releaseDates});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  ResultsModels.fromJson(Map<String, dynamic> json) {
     iso31661 = json['iso_3166_1'];
     if (json['release_dates'] != null) {
       releaseDates = new List<ReleaseDates>();
