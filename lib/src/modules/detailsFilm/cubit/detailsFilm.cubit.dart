@@ -48,6 +48,7 @@ class DetailsFilmCubit extends Cubit<DetailsFilmState> {
         status: data.status,
         budget: data.budget,
         revenue: data.revenue,
+        voteAverage: data.voteAverage,
       );
 
       getClassificationsFilm(idFilm);

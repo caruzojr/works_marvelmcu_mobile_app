@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/data/constants/all.const.dart';
-import 'package:marvel_mcu_app/src/shared/widgets/zDrawerMenu/view/zDraweMenu.widget.dart';
 
 class ZScaffoldWidget extends StatelessWidget {
   final Widget title;
@@ -20,6 +19,7 @@ class ZScaffoldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: extendBodyBehindAppBar,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: title != null ? title : null,
         centerTitle: centerTitle,

@@ -13,21 +13,22 @@ class FilmViewModel {
   String status;
   int budget;
   int revenue;
+  dynamic voteAverage;
 
-  FilmViewModel({
-    this.releaseDate,
-    this.title,
-    this.genres,
-    this.runtime,
-    this.classification,
-    this.originalTitle,
-    this.originalLanguage,
-    this.overview,
-    this.director,
-    this.status,
-    this.budget,
-    this.revenue,
-  });
+  FilmViewModel(
+      {this.releaseDate,
+      this.title,
+      this.genres,
+      this.runtime,
+      this.classification,
+      this.originalTitle,
+      this.originalLanguage,
+      this.overview,
+      this.director,
+      this.status,
+      this.budget,
+      this.revenue,
+      this.voteAverage});
 
   FilmViewModel copyWith({
     String releaseDate,
@@ -42,6 +43,7 @@ class FilmViewModel {
     String status,
     int budget,
     int revenue,
+    dynamic voteAverage,
   }) =>
       FilmViewModel(
         releaseDate: releaseDate ?? this.releaseDate,
@@ -56,6 +58,7 @@ class FilmViewModel {
         status: status ?? this.status,
         budget: budget ?? this.budget,
         revenue: revenue ?? this.revenue,
+        voteAverage: voteAverage ?? this.voteAverage,
       );
 
   FilmViewModel.fromJson(Map<String, dynamic> json) {
@@ -76,6 +79,7 @@ class FilmViewModel {
     status = json['status'];
     budget = json['budget'];
     revenue = json['revenue'];
+    voteAverage = json['voteAverage'];
   }
 
   Map<String, dynamic> toJson() {
@@ -94,6 +98,7 @@ class FilmViewModel {
     data['status'] = this.status;
     data['budget'] = this.budget;
     data['revenue'] = this.revenue;
+    data['voteAverage'] = this.voteAverage;
     return data;
   }
 }
