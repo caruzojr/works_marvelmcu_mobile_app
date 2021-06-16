@@ -128,9 +128,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                         children: [
                           Text("Título Original".toUpperCase()),
                           SizedBox(height: zLayoutSpacerS),
-                          Text(
-                            widget.dataDetailsFilm.originalTitle,
-                          ),
+                          Text(widget.dataDetailsFilm.originalTitle),
                         ],
                       ),
                     ),
@@ -157,9 +155,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                     children: [
                       Text("Sinopse".toUpperCase()),
                       SizedBox(height: zLayoutSpacerS),
-                      Text(
-                        widget.dataDetailsFilm.overview,
-                      ),
+                      Text(widget.dataDetailsFilm.overview),
                     ],
                   ),
                 ),
@@ -175,7 +171,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                         children: [
                           Text("Diretor".toUpperCase()),
                           SizedBox(height: zLayoutSpacerS),
-                          Text("Nome"),
+                          Text(widget.dataDetailsFilm.director),
                         ],
                       ),
                     ),

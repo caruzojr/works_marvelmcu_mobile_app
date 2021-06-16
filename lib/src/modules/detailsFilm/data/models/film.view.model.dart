@@ -9,6 +9,7 @@ class FilmViewModel {
   String originalTitle;
   String originalLanguage;
   String overview;
+  String director;
   String status;
   int budget;
   int revenue;
@@ -22,6 +23,7 @@ class FilmViewModel {
     this.originalTitle,
     this.originalLanguage,
     this.overview,
+    this.director,
     this.status,
     this.budget,
     this.revenue,
@@ -36,6 +38,7 @@ class FilmViewModel {
     String originalTitle,
     String originalLanguage,
     String overview,
+    String director,
     String status,
     int budget,
     int revenue,
@@ -49,6 +52,7 @@ class FilmViewModel {
         originalTitle: originalTitle ?? this.originalTitle,
         originalLanguage: originalLanguage ?? this.originalLanguage,
         overview: overview ?? this.overview,
+        director: director ?? this.director,
         status: status ?? this.status,
         budget: budget ?? this.budget,
         revenue: revenue ?? this.revenue,
@@ -68,6 +72,7 @@ class FilmViewModel {
     originalTitle = json['originalTitle'];
     originalLanguage = json['originalLanguage'];
     overview = json['overview'];
+    director = json['director'];
     status = json['status'];
     budget = json['budget'];
     revenue = json['revenue'];
@@ -85,6 +90,7 @@ class FilmViewModel {
     data['originalTitle'] = this.originalTitle;
     data['originalLanguage'] = this.originalLanguage;
     data['overview'] = this.overview;
+    data['director'] = this.director;
     data['status'] = this.status;
     data['budget'] = this.budget;
     data['revenue'] = this.revenue;
