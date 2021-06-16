@@ -7,7 +7,6 @@ class BaseEndPoints {
 class EndPoints {
   static const mcu = "/mcu";
   static const detailsFilm = "/3/movie";
-  static const classificationFilm = "/3/movie";
 }
 
 class Routes {

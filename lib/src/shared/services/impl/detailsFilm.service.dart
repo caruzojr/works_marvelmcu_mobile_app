@@ -66,4 +66,30 @@ class DetailsFilmService implements IDetailsFilmService {
 
     return response;
   }
+
+  @override
+  Future<http.Response> getCreditsFilm(int idFilm) async {
+    var endpoint = Uri.https(
+      '${BaseEndPoints.urlTheMoveDB}',
+      '${EndPoints.detailsFilm}/$idFilm/credits',
+      {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
+    );
+
+    final response =
+        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+      push(context, ZPageErrorWidget(), replace: true);
+      return null;
+    });
+
+    if (response.statusCode != 200) {
+      final ErrorModel error = ErrorModel(
+        statusCode: response.statusCode,
+        reasonPhrase: response.reasonPhrase,
+      );
+
+      push(context, ZPageErrorWidget(error: error), replace: true);
+    }
+
+    return response;
+  }
 }
