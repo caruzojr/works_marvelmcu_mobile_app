@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.view.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/usecases/get_classifications_film.usecase.dart';
 import 'package:meta/meta.dart';
 
@@ -13,15 +14,16 @@ class DetailsFilmCubit extends Cubit<DetailsFilmState> {
   final int positionMCUFilm;
   final GetDetailsFilmUseCase getDetailsFilmUseCase;
   final GetClassigicationsFilmUseCase getClassificationsFilmUseCase;
+  FilmViewModel dataFilm;
 
   DetailsFilmCubit({
     this.idFilm,
     this.positionMCUFilm,
     this.getDetailsFilmUseCase,
     this.getClassificationsFilmUseCase,
+    this.dataFilm,
   }) : super(DetailsFilmInitial()) {
     getDetailsFilm(idFilm);
-    getClassificationsFilm(idFilm);
   }
 
   getDetailsFilm(int idFilm) async {
@@ -29,19 +31,30 @@ class DetailsFilmCubit extends Cubit<DetailsFilmState> {
 
     try {
       FilmModel data = await getDetailsFilmUseCase(idFilm);
-      emit(DetailsFilmSuccess(dataDetailsFilm: data));
+
+      dataFilm = FilmViewModel(
+        releaseDate: data.releaseDate,
+        title: data.title,
+        genres: data.genres,
+        runtime: data.runtime,
+        originalTitle: data.originalTitle,
+        originalLanguage: data.originalLanguage,
+        overview: data.overview,
+        status: data.status,
+        budget: data.budget,
+        revenue: data.revenue,
+      );
+
+      getClassificationsFilm(idFilm);
     } catch (error) {
       emit(DetailsFilmFailure(error: error.toString()));
     }
   }
 
   getClassificationsFilm(int idFilm) async {
-    print('bateu aqui para pegar a classificação');
-    print('precisa de um refactory e ter uma viewmodel para esta tela');
-    print(
-        'pois iremos bater em duas APIs para compor uma informação em tela, então, com uma viewmodel facilita a leitura dos dados na ui, pois teremos apenas um objeto para se trabalhar');
-    // emit(DetailsFilmInProgress());
+    dataFilm = dataFilm.copyWith(classification: "18");
 
+    emit(DetailsFilmSuccess(dataDetailsFilm: dataFilm));
     // try {
     //   FilmModel data = await getDetailsFilmUseCase(idFilm);
     //   emit(DetailsFilmSuccess(dataDetailsFilm: data));

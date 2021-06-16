@@ -10,11 +10,11 @@ import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.wid
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/view/zScaffold.widget.dart';
 
-import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.view.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/cubit/detailsFilm.cubit.dart';
 
 class DetailsFilmView extends StatefulWidget {
-  final FilmModel dataDetailsFilm;
+  final FilmViewModel dataDetailsFilm;
 
   DetailsFilmView({
     this.dataDetailsFilm,
@@ -97,7 +97,9 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           minutesInHours(widget.dataDetailsFilm.runtime),
                         ),
                         SizedBox(height: zLayoutSpacerM),
-                        Text("12"),
+                        Text(
+                          widget.dataDetailsFilm.classification,
+                        ),
                       ],
                     ),
                   ],

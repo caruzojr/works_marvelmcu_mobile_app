@@ -1,7 +1,7 @@
 part of 'detailsFilm.cubit.dart';
 
 abstract class DetailsFilmState extends Equatable {
-  final FilmModel dataDetailsFilm;
+  final FilmViewModel dataDetailsFilm;
 
   DetailsFilmState({this.dataDetailsFilm});
 
@@ -14,7 +14,7 @@ class DetailsFilmInitial extends DetailsFilmState {}
 class DetailsFilmInProgress extends DetailsFilmState {}
 
 class DetailsFilmSuccess extends DetailsFilmState {
-  final FilmModel dataDetailsFilm;
+  final FilmViewModel dataDetailsFilm;
 
   DetailsFilmSuccess({this.dataDetailsFilm})
       : super(dataDetailsFilm: dataDetailsFilm);
