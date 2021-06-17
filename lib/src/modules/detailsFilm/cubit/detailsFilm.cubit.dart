@@ -87,7 +87,6 @@ class DetailsFilmCubit extends Cubit<DetailsFilmState> {
 
       results.map((result) {
         if (result.job == "Director") {
-          print(result.name);
           dataFilm = dataFilm.copyWith(director: "${result.name}");
           return result;
         }

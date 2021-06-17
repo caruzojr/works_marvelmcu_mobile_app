@@ -40,7 +40,27 @@ class _HomeViewState extends State<HomeView> {
           Container(
             width: size.width,
             height: size.height,
-            color: backgroundPage,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/imgBackground.jpg'),
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+              ),
+            ),
+          ),
+          Container(
+            width: size.width,
+            height: size.height,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: FractionalOffset.topCenter,
+                end: FractionalOffset.bottomCenter,
+                colors: [
+                  Color(0xFF000000).withOpacity(0.0),
+                  Color(0xFF000000).withOpacity(1),
+                ],
+              ),
+            ),
           ),
           Container(
             margin: EdgeInsets.only(top: zMarginTopScaffold),

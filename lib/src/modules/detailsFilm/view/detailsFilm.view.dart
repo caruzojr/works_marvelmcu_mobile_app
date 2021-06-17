@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
+import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 import 'package:marvel_mcu_app/src/shared/utils/pipe_decoder.util.dart';
 import 'package:marvel_mcu_app/src/shared/utils/minutes_in_hours.util.dart';
 
@@ -42,8 +43,29 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
           children: [
             Container(
               width: size.width,
-              height: size.height,
-              color: Colors.black,
+              height: 350,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                      "${BaseURL.urlTheMoveDB}${SizeImages.imagesW1280}${widget.dataDetailsFilm.backdropPath}"),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                ),
+              ),
+            ),
+            Container(
+              width: size.width,
+              height: 360,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: FractionalOffset.topCenter,
+                  end: FractionalOffset.bottomCenter,
+                  colors: [
+                    Color(0xFF000000).withOpacity(0.0),
+                    Color(0xFF000000).withOpacity(1),
+                  ],
+                ),
+              ),
             ),
             Container(
               child: Positioned(

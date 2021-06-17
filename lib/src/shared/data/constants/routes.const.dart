@@ -6,12 +6,12 @@ class BaseURL {
 }
 
 class SizeImages {
-  static const String imagesW220 = "/t/p/w220_and_h330_face/";
-  static const String imagesW300 = "/t/p/w300_and_h450_face/";
-  static const String imagesW440 = "/t/p/w440_and_h660_face/";
-  static const String imagesW600 = "/t/p/w600_and_h900_face/";
-  static const String imagesW1280 = "/t/p/w1280/";
-  static const String imagesOriginal = "/t/p/original/";
+  static const String imagesW220 = "/t/p/w220_and_h330_face";
+  static const String imagesW300 = "/t/p/w300_and_h450_face";
+  static const String imagesW440 = "/t/p/w440_and_h660_face";
+  static const String imagesW600 = "/t/p/w600_and_h900_face";
+  static const String imagesW1280 = "/t/p/w1280";
+  static const String imagesOriginal = "/t/p/original";
 }
 
 class EndPoints {

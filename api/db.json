@@ -323,43 +323,44 @@
         },
         {
             "adult": false,
-            "backdrop_path": "/qm2hWnMkj9jPjGlAHaHRj7FDeJb.jpg",
+            "backdrop_path": "/sIwFcU1pql5a3LdZGxsRKi9JfTL.jpg",
             "genre_ids": [
-                16
+                28,
+                12,
+                878
             ],
-            "id": 86841,
+            "id": 284054,
             "original_language": "en",
             "original_title": "Black Panther",
-            "overview": "O Pantera Negra é T'Challa, rei da nação africana chamada Wakanda. Depois de ser educado nas melhores escolas européias e norte-americanas, TChalla voltou ao seu reino para assumir o manto da liderança. Sob sua orientação, o pequeno país tornou-se uma das nações mais ricas e avançadas de todo o planeta. Durante uma cerimônia de iniciação de seu povo, o Pantera Negra ingeriu uma erva mística que é reservada somente aos reis, que lhe conferiu poderes sobre-humanos, tais como sentidos aguçados, força, velocidade e resistência acima dos níveis normais. É um exímio ginasta e acrobata, além de conhecer artes marciais africanas e ser um excelente rastreador.",
-            "popularity": 2.731,
-            "poster_path": "/aXmsbVlvLCuBDMxUvpDJdYSAOFQ.jpg",
-            "release_date": "2010-01-18",
+            "overview": "O príncipe T'Challa retorna a Wakanda para ser coroado rei. Assumindo o manto de Pantera Negra, ele vai à caça de um vilão que roubou um precioso metal de seu país.",
+            "popularity": 66.321,
+            "poster_path": "/2yQUnpc1BXgesJrfcdoRa6jTAnA.jpg",
+            "release_date": "2018-02-13",
             "title": "Pantera Negra",
             "video": false,
-            "vote_average": 5.8,
-            "vote_count": 14
+            "vote_average": 7.4,
+            "vote_count": 17442
         },
         {
             "adult": false,
-            "backdrop_path": "/kw4GhCZP5NeMVsfPol6HcX9JEeQ.jpg",
+            "backdrop_path": "/aL53oMdZKZRJRH8txH07DLuleF9.jpg",
             "genre_ids": [
-                10770,
                 28,
                 12,
                 14,
                 878
             ],
-            "id": 50468,
+            "id": 284052,
             "original_language": "en",
-            "original_title": "Dr. Strange",
-            "overview": "Um psiquiatra se torna o novo feiticeiro supremo da Terra, a fim de lutar contra uma feiticeira do mal do passado.",
-            "popularity": 8.649,
-            "poster_path": "/8PwVXsbRttRxk4pVBdgqnzPXQG1.jpg",
-            "release_date": "1978-09-06",
+            "original_title": "Doctor Strange",
+            "overview": "Da Marvel Studios vem “Doctor Strange”, a história do mundialmente famoso neurocirurgião Dr. Stephen Strange, cuja vida muda para sempre depois de um terrível acidente de carro, que o rouba do uso de suas mãos. Quando a medicina tradicional o falha, ele é forçado a procurar por cura e esperança, em um lugar improvável - um enclave misterioso conhecido como Kamar-Taj. Ele rapidamente descobre que isso não é apenas um centro de cura, mas também a linha de frente de uma batalha contra as forças ocultas invisíveis empenhadas em destruir nossa realidade. Em pouco tempo, Strange - armado com poderes mágicos recém-adquiridos - é forçado a escolher se quer retornar à sua vida de fortuna e status ou deixar tudo para trás para defender o mundo como o mais poderoso feiticeiro existente.",
+            "popularity": 57.742,
+            "poster_path": "/t0amAZ8KJFxBQZOxOnWlKVT4STi.jpg",
+            "release_date": "2016-10-25",
             "title": "Doutor Estranho",
             "video": false,
-            "vote_average": 6.5,
-            "vote_count": 55
+            "vote_average": 7.4,
+            "vote_count": 17040
         },
         {
             "adult": false,
