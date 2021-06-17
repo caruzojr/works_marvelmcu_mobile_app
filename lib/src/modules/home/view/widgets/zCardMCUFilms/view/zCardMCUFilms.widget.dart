@@ -34,6 +34,7 @@ class ZCardMCUFilmsWidget extends StatelessWidget {
           children: [
             ZCoverFilmWidget(
               positionMCUFilm: indexPosition,
+              coverFilm: film.posterPath,
             ),
             SizedBox(height: zLayoutSpacerS),
             Text(

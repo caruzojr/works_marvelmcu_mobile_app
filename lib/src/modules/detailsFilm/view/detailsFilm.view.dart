@@ -80,6 +80,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                         margin: EdgeInsets.only(right: zLayoutMarginM),
                         child: ZCoverFilmWidget(
                           positionMCUFilm: bloc.positionMCUFilm,
+                          coverFilm: widget.dataDetailsFilm.posterPath,
                         ),
                       ),
                       Column(

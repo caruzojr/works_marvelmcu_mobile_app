@@ -40,6 +40,8 @@ class DetailsFilmCubit extends Cubit<DetailsFilmState> {
       dataFilm = FilmViewModel(
         releaseDate: data.releaseDate,
         title: data.title,
+        posterPath: data.posterPath,
+        backdropPath: data.backdropPath,
         genres: data.genres,
         runtime: data.runtime,
         originalTitle: data.originalTitle,

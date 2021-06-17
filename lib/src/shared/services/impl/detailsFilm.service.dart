@@ -18,7 +18,7 @@ class DetailsFilmService implements IDetailsFilmService {
   @override
   Future<http.Response> getDetailsFilm(int idFilm) async {
     var endpoint = Uri.https(
-      '${BaseEndPoints.urlTheMoveDB}',
+      '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm',
       {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
     );
@@ -44,7 +44,7 @@ class DetailsFilmService implements IDetailsFilmService {
   @override
   Future<http.Response> getClassificationsFilm(int idFilm) async {
     var endpoint = Uri.https(
-      '${BaseEndPoints.urlTheMoveDB}',
+      '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/release_dates',
       {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
     );
@@ -70,7 +70,7 @@ class DetailsFilmService implements IDetailsFilmService {
   @override
   Future<http.Response> getCreditsFilm(int idFilm) async {
     var endpoint = Uri.https(
-      '${BaseEndPoints.urlTheMoveDB}',
+      '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/credits',
       {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
     );

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
+import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/data/constants/all.const.dart';
 
 class ZCoverFilmWidget extends StatelessWidget {
   final int positionMCUFilm;
+  final String coverFilm;
 
   ZCoverFilmWidget({
     Key key,
     this.positionMCUFilm,
+    this.coverFilm,
   }) : super(key: key);
 
   @override
@@ -20,7 +23,11 @@ class ZCoverFilmWidget extends StatelessWidget {
           height: sizeCoverHeight,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(zBorderRadiusS),
-            color: zGreyColorDefault,
+            image: DecorationImage(
+              image: NetworkImage(
+                  "${BaseURL.urlTheMoveDB}${SizeImages.imagesW220}$coverFilm"),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Positioned(

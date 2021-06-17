@@ -15,7 +15,7 @@ class HomeService implements IHomeService {
 
   @override
   Future<http.Response> getMCUFilms() async {
-    var endpoint = Uri.http('${BaseEndPoints.url}', '${EndPoints.mcu}');
+    var endpoint = Uri.http('${BaseURL.url}', '${EndPoints.mcu}');
     final response =
         await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);

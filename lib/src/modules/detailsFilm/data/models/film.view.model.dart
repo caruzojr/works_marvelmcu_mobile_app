@@ -3,6 +3,8 @@ import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/genres.model.
 class FilmViewModel {
   String releaseDate;
   String title;
+  String posterPath;
+  String backdropPath;
   List<GenresModel> genres;
   int runtime;
   String classification;
@@ -18,6 +20,8 @@ class FilmViewModel {
   FilmViewModel(
       {this.releaseDate,
       this.title,
+      this.posterPath,
+      this.backdropPath,
       this.genres,
       this.runtime,
       this.classification,
@@ -33,6 +37,8 @@ class FilmViewModel {
   FilmViewModel copyWith({
     String releaseDate,
     String title,
+    String posterPath,
+    String backdropPath,
     List<GenresModel> genres,
     int runtime,
     String classification,
@@ -48,6 +54,8 @@ class FilmViewModel {
       FilmViewModel(
         releaseDate: releaseDate ?? this.releaseDate,
         title: title ?? this.title,
+        posterPath: posterPath ?? this.posterPath,
+        backdropPath: backdropPath ?? this.backdropPath,
         genres: genres ?? this.genres,
         runtime: runtime ?? this.runtime,
         classification: classification ?? this.classification,
@@ -64,6 +72,8 @@ class FilmViewModel {
   FilmViewModel.fromJson(Map<String, dynamic> json) {
     releaseDate = json['releaseDate'];
     title = json['title'];
+    posterPath = json['posterPath'];
+    backdropPath = json['backdropPath'];
     if (json['genres'] != null) {
       genres = new List<GenresModel>();
       json['genres'].forEach((v) {
@@ -86,6 +96,8 @@ class FilmViewModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['releaseDate'] = this.releaseDate;
     data['title'] = this.title;
+    data['posterPath'] = this.posterPath;
+    data['backdropPath'] = this.backdropPath;
     if (this.genres != null) {
       data['genres'] = this.genres.map((v) => v.toJson()).toList();
     }
