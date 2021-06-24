@@ -70,23 +70,9 @@ class ZDrawerMenuWidget extends StatelessWidget {
             },
           ),
           ZDividerWidget(),
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: paddingTitleSectionHorizontal,
-              vertical: paddingTitleSectionVertical,
-            ),
-            child: Text(
-              titleSection2.toUpperCase(),
-              style: TextStyle(
-                color: zGreyColorDefault,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          ZDividerWidget(),
           ZDrawerMenuItemWidget(
-            iconItem: iconSection2Item1,
-            textItem: textSection2Item1,
+            iconItem: iconSection1Item2,
+            textItem: textSection1Item2,
             tapItem: () {
               pushNamed(context, Routes.homeRouter);
             },

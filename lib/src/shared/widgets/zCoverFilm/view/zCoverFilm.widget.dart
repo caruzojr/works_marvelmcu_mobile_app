@@ -22,6 +22,10 @@ class ZCoverFilmWidget extends StatelessWidget {
           width: sizeCoverWidth,
           height: sizeCoverHeight,
           decoration: BoxDecoration(
+            border: Border.all(
+              color: Color(0xFFFFFFFF).withOpacity(0.1),
+              width: 1,
+            ),
             borderRadius: BorderRadius.circular(zBorderRadiusS),
             image: DecorationImage(
               image: NetworkImage(
@@ -38,7 +42,7 @@ class ZCoverFilmWidget extends StatelessWidget {
             height: sizeTagNumberWidthHeight,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(radiusTagNumber),
-              color: Colors.white,
+              color: Color(0xFFFFFFFF).withOpacity(0.2),
             ),
             child: Center(
               child: Text(
@@ -46,7 +50,7 @@ class ZCoverFilmWidget extends StatelessWidget {
                 style: TextStyle(
                   fontSize: zFontSizeM,
                   fontWeight: FontWeight.bold,
-                  color: zGreyColorDefault,
+                  color: Colors.white,
                 ),
               ),
             ),
