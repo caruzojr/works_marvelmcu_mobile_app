@@ -1,12 +1,12 @@
 # MARVEL MCU APP
 
-Este **NÃO** é um projeto realizado oficialmente para Marvel Studios ou muito menos foi comercializado em lojas oficiais de aplicaticos.
+## COMO RODAR O PROJETO
+Depois de realizar um GET no repositório, com o terminal aberto e na pasta do projeto, rode os seguintes comandos para realizar o build inicial.  
 
-Apenas é um projeto para **ESTUDO** de uma aplicação mobile utlizando **FLUTTER** como tecnologia no desenvolvimento, e o tema escolhido foi o mundo MCU da Marvel, mostrando toda a cronologia e detalhes de cada filme.
+ATENÇÃO: Execute na pasta do projeto, um comando por vez, e na sequencia que está abaixo.
 
-**ENTÃO:**  
-**PROJETO CRIADO APENAS PARA ESTUDO DE UMA TECNOLODIA, TOTALMENTE INDEPENDENTE, SEM FINS LUCRATIVOS OU QUALQUER VÍNCULO COM A EMPRESA MARVEL STUDIOS**
-
-### SOBRE AS INFORMAÇÕES EXIBIDAS NA APLICAÇÃO
-Os dados exibidos de cada filme, foram consumidos de uma API disponibilizada pela [The Movie DB](themoviedb.org/documentation/api) de forma gratuita.
-
+```
+flutter create .
+flutter pug get
+flutter pug upgrade
+```
