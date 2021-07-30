@@ -1,4 +1,0 @@
-#Fri Jul 30 11:39:00 BRT 2021
-base.0=C\:\\PROJETOS\\works\\marvel_mcu_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
