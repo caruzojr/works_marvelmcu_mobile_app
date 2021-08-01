@@ -14,7 +14,7 @@ flutter pug upgrade
 Nos emuladores Android, por medida de segurança, existe um bloqueio para acessar links externos como por exemplo uma chamada API.  
 Para resolver isso, devemos editar o arquivo `AndroidManifest.xml` que está dentro da pasta `android/app/main/`.
 
-Coloquei o código abaixo antes da linha `android:label="marvel_mcu_app`
+Coloquei o código antes da linha `android:label="marvel_mcu_app`
 
 ```
 android:usesCleartextTraffic="true"

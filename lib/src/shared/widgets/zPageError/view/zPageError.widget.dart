@@ -41,8 +41,8 @@ class ZPageErrorWidget extends StatelessWidget {
                 children: [
                   SizedBox(height: zLayoutSpacerXXL),
                   ZLogoWidget(
-                    isLogoNegative: isLogoNegative,
-                    sizeLogoWidth: sizeLogoWidth,
+                    isLogoNegative: isLogoNegativeDefault,
+                    sizeLogoWidth: sizeLogoWidthDefault,
                   ),
                   SizedBox(height: zLayoutSpacerXXL),
                   Text(

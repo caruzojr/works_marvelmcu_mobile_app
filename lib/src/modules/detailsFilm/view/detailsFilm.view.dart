@@ -3,15 +3,14 @@ import 'package:intl/intl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
-import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
 import 'package:marvel_mcu_app/src/shared/utils/pipe_decoder.util.dart';
 import 'package:marvel_mcu_app/src/shared/utils/minutes_in_hours.util.dart';
-
 import 'package:marvel_mcu_app/src/shared/widgets/zCoverFilm/view/zCoverFilm.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zScaffold/view/zScaffold.widget.dart';
 
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/film.view.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/cubit/detailsFilm.cubit.dart';
 
 class DetailsFilmView extends StatefulWidget {
@@ -30,24 +29,24 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
   Widget build(BuildContext context) {
     final DetailsFilmCubit bloc = BlocProvider.of<DetailsFilmCubit>(context);
     final Size size = MediaQuery.of(context).size;
-    final NumberFormat price = NumberFormat("#,##0.00", "en");
+    final NumberFormat price = maskPrice;
 
     return ZScaffoldWidget(
       title: ZLogoWidget(
-        sizeLogoWidth: 120.0,
-        isLogoNegative: true,
+        sizeLogoWidth: sizeLogoWidth,
+        isLogoNegative: isLogoNegative,
       ),
-      centerTitle: true,
+      centerTitle: centerTitle,
       body: SingleChildScrollView(
         child: Stack(
           children: [
             Container(
               width: size.width,
-              height: 350,
+              height: imgBackgroundSizeHeight,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                      "${BaseURL.urlTheMoveDB}${SizeImages.imagesW1280}${widget.dataDetailsFilm.backdropPath}"),
+                  image: NetworkImage(imgBackgroundUrlBase +
+                      "${widget.dataDetailsFilm.backdropPath}"),
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
                 ),
@@ -55,27 +54,27 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
             ),
             Container(
               width: size.width,
-              height: 360,
+              height: shadowBackgroundSizeHeight,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: FractionalOffset.topCenter,
                   end: FractionalOffset.bottomCenter,
                   colors: [
-                    Color(0xFF000000).withOpacity(0.0),
-                    Color(0xFF000000).withOpacity(1),
+                    shadowBackgroundInitialState,
+                    shadowBackgroundEndState,
                   ],
                 ),
               ),
             ),
             Container(
               child: Positioned(
-                top: 190,
-                right: 32,
+                top: votePositionTop,
+                right: votePositionRight,
                 child: Container(
-                  width: 45,
-                  height: 45,
+                  width: voteCircleSize,
+                  height: voteCircleSize,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(45),
+                    borderRadius: BorderRadius.circular(voteCircleSize),
                     border: Border.all(
                       color: zTextColorDefault,
                     ),
@@ -90,7 +89,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 220),
+              margin: EdgeInsets.only(top: contentMarginTop),
               padding: EdgeInsets.all(zLayoutPaddingM),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +115,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                           ),
                           SizedBox(height: zLayoutSpacerXS),
                           Container(
-                            width: size.width - 190,
+                            width: size.width - contentHeaderSizeBox,
                             child: Text(
                               widget.dataDetailsFilm.title,
                               style: Theme.of(context).textTheme.headline3,
@@ -127,10 +126,11 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                             "${DateFormat.yMd('pt_Br').format(DateTime.parse(widget.dataDetailsFilm.releaseDate))} (BR)",
                           ),
                           Container(
-                            width: size.width - 190,
-                            height: 16,
+                            width: size.width - contentHeaderSizeBox,
+                            height: contentGenderSizeHeight,
                             child: ListView.separated(
-                              separatorBuilder: (context, index) => Text(", "),
+                              separatorBuilder: (context, index) =>
+                                  Text(contentGenderSeparated),
                               scrollDirection: Axis.horizontal,
                               itemCount: widget.dataDetailsFilm.genres.length,
                               itemBuilder: (context, index) {
@@ -169,22 +169,24 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        width: (size.width / 2) - 24,
+                        width: (size.width / numberColumnContent) -
+                            gapColumnContent,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Título Original".toUpperCase()),
+                            Text(originalTitle.toUpperCase()),
                             SizedBox(height: zLayoutSpacerS),
                             Text(widget.dataDetailsFilm.originalTitle),
                           ],
                         ),
                       ),
                       Container(
-                        width: (size.width / 2) - 24,
+                        width: (size.width / numberColumnContent) -
+                            gapColumnContent,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Idioma Original".toUpperCase()),
+                            Text(originalLanguage.toUpperCase()),
                             SizedBox(height: zLayoutSpacerS),
                             Text(
                               PipeDecoderUtils.initialsIdiomaDecoder(
@@ -200,7 +202,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Sinopse".toUpperCase()),
+                        Text(synopsis.toUpperCase()),
                         SizedBox(height: zLayoutSpacerS),
                         Text(widget.dataDetailsFilm.overview),
                       ],
@@ -212,22 +214,24 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        width: (size.width / 2) - 24,
+                        width: (size.width / numberColumnContent) -
+                            gapColumnContent,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Diretor".toUpperCase()),
+                            Text(director.toUpperCase()),
                             SizedBox(height: zLayoutSpacerS),
                             Text(widget.dataDetailsFilm.director),
                           ],
                         ),
                       ),
                       Container(
-                        width: (size.width / 2) - 24,
+                        width: (size.width / numberColumnContent) -
+                            gapColumnContent,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Situação".toUpperCase()),
+                            Text(status.toUpperCase()),
                             SizedBox(height: zLayoutSpacerS),
                             Text(
                               PipeDecoderUtils.situationDecoder(
@@ -244,11 +248,12 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        width: (size.width / 2) - 24,
+                        width: (size.width / numberColumnContent) -
+                            gapColumnContent,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Orçamento".toUpperCase()),
+                            Text(budget.toUpperCase()),
                             SizedBox(height: zLayoutSpacerS),
                             Text(
                               "\$ ${price.format(widget.dataDetailsFilm.budget)}",
@@ -258,11 +263,12 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
                         ),
                       ),
                       Container(
-                        width: (size.width / 2) - 24,
+                        width: (size.width / numberColumnContent) -
+                            gapColumnContent,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Receita".toUpperCase()),
+                            Text(revenue.toUpperCase()),
                             SizedBox(height: zLayoutSpacerS),
                             Text(
                               "\$ ${price.format(widget.dataDetailsFilm.revenue)}",

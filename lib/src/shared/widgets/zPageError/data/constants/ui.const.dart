@@ -1,5 +1,5 @@
-const bool isLogoNegative = true;
-const double sizeLogoWidth = 200.0;
+const bool isLogoNegativeDefault = true;
+const double sizeLogoWidthDefault = 200.0;
 
 const double sizeBoxError = 80;
 
