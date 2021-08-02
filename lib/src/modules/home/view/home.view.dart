@@ -35,6 +35,7 @@ class _HomeViewState extends State<HomeView> {
       ),
       centerTitle: centerTitle,
       drawer: ZDrawerMenuWidget(),
+      brightness: Brightness.dark,
       body: Stack(
         children: [
           Container(

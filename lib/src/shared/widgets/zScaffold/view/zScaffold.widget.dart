@@ -7,12 +7,14 @@ class ZScaffoldWidget extends StatelessWidget {
   final bool centerTitle;
   final Widget body;
   final Widget drawer;
+  final Brightness brightness;
 
   ZScaffoldWidget({
     this.title,
     this.centerTitle = defaultCenterTitle,
     @required this.body,
     this.drawer,
+    this.brightness = Brightness.light,
   });
 
   @override
@@ -25,6 +27,7 @@ class ZScaffoldWidget extends StatelessWidget {
         centerTitle: centerTitle,
         backgroundColor: backgroundColor,
         elevation: elevation,
+        brightness: brightness,
       ),
       drawer: drawer != null ? drawer : null,
       body: body,

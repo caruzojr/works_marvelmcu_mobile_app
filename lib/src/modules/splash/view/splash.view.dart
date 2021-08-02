@@ -14,7 +14,6 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    print("chamando apenas uma vez");
     redirectDelayRouter(
       context,
       routeRedirect: Routes.homeRouter,

@@ -37,6 +37,7 @@ class _DetailsFilmViewState extends State<DetailsFilmView> {
         isLogoNegative: isLogoNegative,
       ),
       centerTitle: centerTitle,
+      brightness: Brightness.dark,
       body: SingleChildScrollView(
         child: Stack(
           children: [
