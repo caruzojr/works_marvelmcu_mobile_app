@@ -8,17 +8,29 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return ZScaffoldWidget(
       title: ZLogoWidget(
         sizeLogoWidth: sizeLogoWidth,
-        isLogoNegative: isLogoNegative,
+        isLogoNegative: false,
       ),
       centerTitle: centerTitle,
       brightness: Brightness.light,
       body: Container(
-        //color: Colors.white,
+        color: Colors.white,
+        width: size.width,
+        height: size.height,
         child: Center(
-          child: Text("About Page"),
+          child: SingleChildScrollView(
+            child: Text(
+              "About Page",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText2
+                  .copyWith(color: Colors.black),
+            ),
+          ),
         ),
       ),
     );

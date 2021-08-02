@@ -26,6 +26,9 @@ class ZScaffoldWidget extends StatelessWidget {
         title: title != null ? title : null,
         centerTitle: centerTitle,
         backgroundColor: backgroundColor,
+        iconTheme: brightness == Brightness.light
+            ? IconThemeData(color: Colors.black)
+            : IconThemeData(color: Colors.white),
         elevation: elevation,
         brightness: brightness,
       ),
