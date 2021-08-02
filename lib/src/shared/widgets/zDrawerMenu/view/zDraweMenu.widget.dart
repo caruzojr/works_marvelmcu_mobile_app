@@ -74,7 +74,7 @@ class ZDrawerMenuWidget extends StatelessWidget {
             iconItem: iconSection1Item2,
             textItem: textSection1Item2,
             tapItem: () {
-              pushNamed(context, Routes.homeRouter);
+              pushNamed(context, Routes.aboutRouter);
             },
           ),
           ZDividerWidget(),
