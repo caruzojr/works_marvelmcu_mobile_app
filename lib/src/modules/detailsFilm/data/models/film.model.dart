@@ -1,4 +1,8 @@
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/belongs_to_collection.model.dart';
 import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/genres.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/production_companies.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/production_countries.model.dart';
+import 'package:marvel_mcu_app/src/modules/detailsFilm/data/models/spoken_languages.model.dart';
 
 class FilmModel {
   bool adult;
@@ -58,9 +62,7 @@ class FilmModel {
   FilmModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
-    belongsToCollection = json['belongs_to_collection'] != null
-        ? new BelongsToCollection.fromJson(json['belongs_to_collection'])
-        : null;
+    belongsToCollection = json['belongs_to_collection'] != null ? new BelongsToCollection.fromJson(json['belongs_to_collection']) : null;
     budget = json['budget'];
     if (json['genres'] != null) {
       genres = new List<GenresModel>();
@@ -125,19 +127,16 @@ class FilmModel {
     data['popularity'] = this.popularity;
     data['poster_path'] = this.posterPath;
     if (this.productionCompanies != null) {
-      data['production_companies'] =
-          this.productionCompanies.map((v) => v.toJson()).toList();
+      data['production_companies'] = this.productionCompanies.map((v) => v.toJson()).toList();
     }
     if (this.productionCountries != null) {
-      data['production_countries'] =
-          this.productionCountries.map((v) => v.toJson()).toList();
+      data['production_countries'] = this.productionCountries.map((v) => v.toJson()).toList();
     }
     data['release_date'] = this.releaseDate;
     data['revenue'] = this.revenue;
     data['runtime'] = this.runtime;
     if (this.spokenLanguages != null) {
-      data['spoken_languages'] =
-          this.spokenLanguages.map((v) => v.toJson()).toList();
+      data['spoken_languages'] = this.spokenLanguages.map((v) => v.toJson()).toList();
     }
     data['status'] = this.status;
     data['tagline'] = this.tagline;
@@ -145,97 +144,6 @@ class FilmModel {
     data['video'] = this.video;
     data['vote_average'] = this.voteAverage;
     data['vote_count'] = this.voteCount;
-    return data;
-  }
-}
-
-class BelongsToCollection {
-  int id;
-  String name;
-  String posterPath;
-  String backdropPath;
-
-  BelongsToCollection({this.id, this.name, this.posterPath, this.backdropPath});
-
-  BelongsToCollection.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    posterPath = json['poster_path'];
-    backdropPath = json['backdrop_path'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['poster_path'] = this.posterPath;
-    data['backdrop_path'] = this.backdropPath;
-    return data;
-  }
-}
-
-class ProductionCompanies {
-  int id;
-  String logoPath;
-  String name;
-  String originCountry;
-
-  ProductionCompanies({this.id, this.logoPath, this.name, this.originCountry});
-
-  ProductionCompanies.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    logoPath = json['logo_path'];
-    name = json['name'];
-    originCountry = json['origin_country'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['logo_path'] = this.logoPath;
-    data['name'] = this.name;
-    data['origin_country'] = this.originCountry;
-    return data;
-  }
-}
-
-class ProductionCountries {
-  String iso31661;
-  String name;
-
-  ProductionCountries({this.iso31661, this.name});
-
-  ProductionCountries.fromJson(Map<String, dynamic> json) {
-    iso31661 = json['iso_3166_1'];
-    name = json['name'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['iso_3166_1'] = this.iso31661;
-    data['name'] = this.name;
-    return data;
-  }
-}
-
-class SpokenLanguages {
-  String englishName;
-  String iso6391;
-  String name;
-
-  SpokenLanguages({this.englishName, this.iso6391, this.name});
-
-  SpokenLanguages.fromJson(Map<String, dynamic> json) {
-    englishName = json['english_name'];
-    iso6391 = json['iso_639_1'];
-    name = json['name'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['english_name'] = this.englishName;
-    data['iso_639_1'] = this.iso6391;
-    data['name'] = this.name;
     return data;
   }
 }
