@@ -20,11 +20,10 @@ class DetailsFilmService implements IDetailsFilmService {
     var endpoint = Uri.https(
       '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm',
-      {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
+      {"${EnvData.apiKeyText}": "${EnvData.apiKey}", "${EnvData.languageText}": "${EnvData.language}"},
     );
 
-    final response =
-        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+    final response = await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);
       return null;
     });
@@ -46,11 +45,10 @@ class DetailsFilmService implements IDetailsFilmService {
     var endpoint = Uri.https(
       '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/release_dates',
-      {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
+      {"${EnvData.apiKeyText}": "${EnvData.apiKey}", "${EnvData.languageText}": "${EnvData.language}"},
     );
 
-    final response =
-        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+    final response = await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);
       return null;
     });
@@ -72,11 +70,10 @@ class DetailsFilmService implements IDetailsFilmService {
     var endpoint = Uri.https(
       '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/credits',
-      {"api_key": "e30de4ba8124835df2d6e8c188d6119d", "language": "pt-BR"},
+      {"${EnvData.apiKeyText}": "${EnvData.apiKey}", "${EnvData.languageText}": "${EnvData.language}"},
     );
 
-    final response =
-        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+    final response = await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);
       return null;
     });

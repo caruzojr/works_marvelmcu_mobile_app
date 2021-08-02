@@ -6,9 +6,15 @@ import 'package:marvel_mcu_app/src/shared/utils/redirect_delay.util.dart';
 import 'package:marvel_mcu_app/src/modules/splash/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
+  _SplashViewState createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  void initState() {
+    print("chamando apenas uma vez");
     redirectDelayRouter(
       context,
       routeRedirect: Routes.homeRouter,
@@ -16,6 +22,11 @@ class SplashView extends StatelessWidget {
       replace: redirectReplacePage,
     );
 
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: Center(

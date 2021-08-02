@@ -1,6 +1,6 @@
 class BaseURL {
-  //static const String url = "localhost:3000";
-  static const String url = "10.0.2.2:3000";
+  static const String url = "localhost:3000";
+  //static const String url = "10.0.2.2:3000";
   static const String urlAPITheMoveDB = "api.themoviedb.org";
   static const String urlTheMoveDB = "https://www.themoviedb.org";
 }
@@ -24,4 +24,11 @@ class Routes {
   static const homeRouter = "/home";
   static const detailsFilmRouter = "/detailsFilm";
   static const aboutProjectRouter = "/aboutProject";
+}
+
+class EnvData {
+  static const String apiKeyText = "api_key";
+  static const String apiKey = "e30de4ba8124835df2d6e8c188d6119d";
+  static const String languageText = "language";
+  static const String language = "pt-BR";
 }
