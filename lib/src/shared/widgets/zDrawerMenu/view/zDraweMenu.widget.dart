@@ -74,6 +74,7 @@ class ZDrawerMenuWidget extends StatelessWidget {
             iconItem: iconSection1Item2,
             textItem: textSection1Item2,
             tapItem: () {
+              Navigator.pop(context);
               pushNamed(context, Routes.aboutRouter);
             },
           ),
