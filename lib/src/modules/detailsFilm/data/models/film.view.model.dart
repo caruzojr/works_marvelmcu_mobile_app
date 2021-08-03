@@ -75,7 +75,7 @@ class FilmViewModel {
     posterPath = json['posterPath'];
     backdropPath = json['backdropPath'];
     if (json['genres'] != null) {
-      genres = new List<GenresModel>();
+      genres = <GenresModel>[];
       json['genres'].forEach((v) {
         genres.add(new GenresModel.fromJson(v));
       });

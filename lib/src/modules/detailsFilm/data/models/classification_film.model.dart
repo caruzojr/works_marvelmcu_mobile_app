@@ -10,7 +10,7 @@ class ClassificationFilmModel {
   ClassificationFilmModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     if (json['results'] != null) {
-      results = new List<ResultsModels>();
+      results = <ResultsModels>[];
       json['results'].forEach((v) {
         results.add(new ResultsModels.fromJson(v));
       });
@@ -36,7 +36,7 @@ class ResultsModels {
   ResultsModels.fromJson(Map<String, dynamic> json) {
     iso31661 = json['iso_3166_1'];
     if (json['release_dates'] != null) {
-      releaseDates = new List<ReleaseDates>();
+      releaseDates = <ReleaseDates>[];
       json['release_dates'].forEach((v) {
         releaseDates.add(new ReleaseDates.fromJson(v));
       });

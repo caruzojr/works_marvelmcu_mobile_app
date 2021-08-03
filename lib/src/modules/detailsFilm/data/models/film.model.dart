@@ -62,10 +62,12 @@ class FilmModel {
   FilmModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
-    belongsToCollection = json['belongs_to_collection'] != null ? new BelongsToCollection.fromJson(json['belongs_to_collection']) : null;
+    belongsToCollection = json['belongs_to_collection'] != null
+        ? new BelongsToCollection.fromJson(json['belongs_to_collection'])
+        : null;
     budget = json['budget'];
     if (json['genres'] != null) {
-      genres = new List<GenresModel>();
+      genres = <GenresModel>[];
       json['genres'].forEach((v) {
         genres.add(new GenresModel.fromJson(v));
       });
@@ -79,13 +81,13 @@ class FilmModel {
     popularity = json['popularity'];
     posterPath = json['poster_path'];
     if (json['production_companies'] != null) {
-      productionCompanies = new List<ProductionCompanies>();
+      productionCompanies = <ProductionCompanies>[];
       json['production_companies'].forEach((v) {
         productionCompanies.add(new ProductionCompanies.fromJson(v));
       });
     }
     if (json['production_countries'] != null) {
-      productionCountries = new List<ProductionCountries>();
+      productionCountries = <ProductionCountries>[];
       json['production_countries'].forEach((v) {
         productionCountries.add(new ProductionCountries.fromJson(v));
       });
@@ -94,7 +96,7 @@ class FilmModel {
     revenue = json['revenue'];
     runtime = json['runtime'];
     if (json['spoken_languages'] != null) {
-      spokenLanguages = new List<SpokenLanguages>();
+      spokenLanguages = <SpokenLanguages>[];
       json['spoken_languages'].forEach((v) {
         spokenLanguages.add(new SpokenLanguages.fromJson(v));
       });
@@ -127,16 +129,19 @@ class FilmModel {
     data['popularity'] = this.popularity;
     data['poster_path'] = this.posterPath;
     if (this.productionCompanies != null) {
-      data['production_companies'] = this.productionCompanies.map((v) => v.toJson()).toList();
+      data['production_companies'] =
+          this.productionCompanies.map((v) => v.toJson()).toList();
     }
     if (this.productionCountries != null) {
-      data['production_countries'] = this.productionCountries.map((v) => v.toJson()).toList();
+      data['production_countries'] =
+          this.productionCountries.map((v) => v.toJson()).toList();
     }
     data['release_date'] = this.releaseDate;
     data['revenue'] = this.revenue;
     data['runtime'] = this.runtime;
     if (this.spokenLanguages != null) {
-      data['spoken_languages'] = this.spokenLanguages.map((v) => v.toJson()).toList();
+      data['spoken_languages'] =
+          this.spokenLanguages.map((v) => v.toJson()).toList();
     }
     data['status'] = this.status;
     data['tagline'] = this.tagline;

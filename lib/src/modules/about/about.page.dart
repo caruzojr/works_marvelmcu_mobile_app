@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';

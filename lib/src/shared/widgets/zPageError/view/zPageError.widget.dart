@@ -10,6 +10,7 @@ import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 import 'package:marvel_mcu_app/src/shared/data/models/error.model.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zPageError/data/constants/all.const.dart';
 
+//ignore: must_be_immutable
 class ZPageErrorWidget extends StatelessWidget {
   ErrorModel error;
 

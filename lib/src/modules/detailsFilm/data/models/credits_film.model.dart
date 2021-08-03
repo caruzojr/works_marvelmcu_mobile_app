@@ -8,13 +8,13 @@ class CreditsFilmModel {
   CreditsFilmModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     if (json['cast'] != null) {
-      cast = new List<Cast>();
+      cast = <Cast>[];
       json['cast'].forEach((v) {
         cast.add(new Cast.fromJson(v));
       });
     }
     if (json['crew'] != null) {
-      crew = new List<Crew>();
+      crew = <Crew>[];
       json['crew'].forEach((v) {
         crew.add(new Crew.fromJson(v));
       });
