@@ -86,7 +86,7 @@ class ZDrawerMenuWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Atenção".toUpperCase(),
+                  titleAtention.toUpperCase(),
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: zGreyColorDefault, fontWeight: FontWeight.bold),
                 ),

@@ -10,3 +10,5 @@ const String titleCodError = "Cod. Error";
 const String titleDescriptionError = "Descrição";
 
 const String titleActions = "Ações";
+
+const String backButtonText = "Voltar\npara Home";

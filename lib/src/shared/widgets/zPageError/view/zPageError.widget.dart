@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
+import 'package:marvel_mcu_app/src/shared/data/constants/routes.const.dart';
+import 'package:marvel_mcu_app/src/shared/utils/nav.util.dart';
+import 'package:marvel_mcu_app/src/shared/widgets/zActionButton/view/zActionButton.widget.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zLogo/view/zLogo.widget.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/models/error.model.dart';
@@ -28,7 +31,7 @@ class ZPageErrorWidget extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(zLayoutPaddingL),
-        color: Colors.redAccent,
+        color: Colors.black,
         width: size.width,
         height: size.height,
         child: Column(
@@ -129,8 +132,21 @@ class ZPageErrorWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(titleActions.toUpperCase()),
-                  Text("BUTTON"),
+                  Text(
+                    titleActions.toUpperCase(),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: zLayoutSpacerS),
+                  ZActionButton(
+                    textButton: backButtonText.toUpperCase(),
+                    iconButton: iconBackButton,
+                    actionButton: () {
+                      pushNamed(context, Routes.homeRouter);
+                    },
+                  ),
                 ],
               ),
             ),

@@ -32,7 +32,7 @@ class HomeService implements IHomeService {
       push(context, ZPageErrorWidget(error: error), replace: true);
     }
 
-    //await Future.delayed(Duration(milliseconds: 5000), () {});
+    await Future.delayed(Duration(milliseconds: 1000), () {});
 
     return response;
   }

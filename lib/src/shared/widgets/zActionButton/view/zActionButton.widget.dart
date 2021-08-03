@@ -7,12 +7,14 @@ import 'package:marvel_mcu_app/src/shared/widgets/zActionButton/constants/all.co
 class ZActionButton extends StatelessWidget {
   final String textButton;
   final String iconButton;
+  final Color colorButton;
   final Function actionButton;
 
   const ZActionButton({
     Key key,
     this.textButton,
     this.iconButton,
+    this.colorButton = zGreyColorDefault,
     this.actionButton,
   }) : super(key: key);
 
