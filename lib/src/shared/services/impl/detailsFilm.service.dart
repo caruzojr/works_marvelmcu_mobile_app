@@ -20,10 +20,14 @@ class DetailsFilmService implements IDetailsFilmService {
     var endpoint = Uri.https(
       '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm',
-      {"${EnvData.apiKeyText}": "${EnvData.apiKey}", "${EnvData.languageText}": "${EnvData.language}"},
+      {
+        "${EnvData.apiKeyText}": "${EnvData.apiKey}",
+        "${EnvData.languageText}": "${EnvData.language}"
+      },
     );
 
-    final response = await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+    final response =
+        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);
       return null;
     });
@@ -45,10 +49,14 @@ class DetailsFilmService implements IDetailsFilmService {
     var endpoint = Uri.https(
       '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/release_dates',
-      {"${EnvData.apiKeyText}": "${EnvData.apiKey}", "${EnvData.languageText}": "${EnvData.language}"},
+      {
+        "${EnvData.apiKeyText}": "${EnvData.apiKey}",
+        "${EnvData.languageText}": "${EnvData.language}"
+      },
     );
 
-    final response = await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+    final response =
+        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);
       return null;
     });
@@ -70,10 +78,14 @@ class DetailsFilmService implements IDetailsFilmService {
     var endpoint = Uri.https(
       '${BaseURL.urlAPITheMoveDB}',
       '${EndPoints.detailsFilm}/$idFilm/credits',
-      {"${EnvData.apiKeyText}": "${EnvData.apiKey}", "${EnvData.languageText}": "${EnvData.language}"},
+      {
+        "${EnvData.apiKeyText}": "${EnvData.apiKey}",
+        "${EnvData.languageText}": "${EnvData.language}"
+      },
     );
 
-    final response = await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
+    final response =
+        await http.get(endpoint).timeout(Duration(seconds: 10), onTimeout: () {
       push(context, ZPageErrorWidget(), replace: true);
       return null;
     });
