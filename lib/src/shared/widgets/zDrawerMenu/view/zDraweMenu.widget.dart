@@ -82,12 +82,34 @@ class ZDrawerMenuWidget extends StatelessWidget {
           Spacer(),
           Container(
             padding: EdgeInsets.all(paddingVersionBuild),
-            child: Text(
-              versionBuildProject.toUpperCase(),
-              style: TextStyle(
-                fontSize: zFontSizeXS,
-                color: zGreyColorDefault,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Atenção".toUpperCase(),
+                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                      color: zGreyColorDefault, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: zLayoutSpacerS),
+                Container(
+                  width: sizeWidthAlertMessage,
+                  child: Text(
+                    alertMessageProject,
+                    style: TextStyle(
+                      fontSize: zFontSizeXS,
+                      color: zGreyColorDefault,
+                    ),
+                  ),
+                ),
+                SizedBox(height: zLayoutSpacerL),
+                Text(
+                  versionBuildProject.toUpperCase(),
+                  style: TextStyle(
+                    fontSize: zFontSizeXS,
+                    color: zGreyColorDefault,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

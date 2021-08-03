@@ -55,7 +55,7 @@ class AboutPage extends StatelessWidget {
                 ),
                 SizedBox(height: zLayoutSpacerM),
                 Text(
-                  contentParagraph2.toUpperCase(),
+                  alertMessageProject.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
@@ -65,7 +65,7 @@ class AboutPage extends StatelessWidget {
                 ZDividerWidget(),
                 SizedBox(height: zLayoutSpacerL),
                 Text(
-                  contentParagraph3.toUpperCase(),
+                  contentParagraph2.toUpperCase(),
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -84,7 +84,7 @@ class AboutPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              contentParagraph4,
+                              contentParagraph3,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
@@ -100,7 +100,7 @@ class AboutPage extends StatelessWidget {
                 ZDividerWidget(),
                 SizedBox(height: zLayoutSpacerL),
                 Text(
-                  contentParagraph5,
+                  contentParagraph4,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2

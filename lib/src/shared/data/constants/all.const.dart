@@ -5,4 +5,5 @@ export 'margin.const.dart';
 export 'padding.const.dart';
 export 'size.const.dart';
 export 'spacer.const.dart';
+export 'strings.const.dart';
 export 'ui.const.dart';

@@ -15,4 +15,5 @@ const bool headerIsLogoNegative = true;
 const double paddingTitleSectionHorizontal = 16;
 const double paddingTitleSectionVertical = 24;
 
+const double sizeWidthAlertMessage = 200;
 const double paddingVersionBuild = 16;
