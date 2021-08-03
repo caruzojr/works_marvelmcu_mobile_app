@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Marvel MCU',
       theme: lightTheme(),
-      initialRoute: Routes.splashRouter,
+      //initialRoute: Routes.splashRouter,
+      initialRoute: Routes.aboutRouter,
       routes: appRoutes,
     );
   }
