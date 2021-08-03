@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'Marvel MCU',
       theme: lightTheme(),
       //initialRoute: Routes.splashRouter,
-      initialRoute: Routes.aboutRouter,
+      initialRoute: Routes.splashRouter,
       routes: appRoutes,
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:marvel_mcu_app/src/shared/data/constants/all.const.dart';
 import 'package:marvel_mcu_app/src/shared/widgets/zActionButton/view/zActionButton.widget.dart';
@@ -12,6 +13,9 @@ import 'package:marvel_mcu_app/src/modules/about/data/constants/all.const.dart';
 class AboutPage extends StatelessWidget {
   const AboutPage({Key key}) : super(key: key);
 
+  void _launchURL(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw '$notLaunch $url';
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -19,7 +23,7 @@ class AboutPage extends StatelessWidget {
     return ZScaffoldWidget(
       title: ZLogoWidget(
         sizeLogoWidth: sizeLogoWidth,
-        isLogoNegative: false,
+        isLogoNegative: isLogoNegativePage,
       ),
       centerTitle: centerTitle,
       brightness: Brightness.light,
@@ -43,7 +47,7 @@ class AboutPage extends StatelessWidget {
                 ),
                 SizedBox(height: zLayoutSpacerXXL),
                 Text(
-                  "Este não é um projeto realizado oficialmente para Marvel Studios ou muito menos foi comercializado em lojas oficiais de aplicaticos.\n\nApenas é um projeto para ESTUDO de uma aplicação mobile utlizando FLUTTER como tecnologia no desenvolvimento, e o tema escolhido foi o mundo MCU da Marvel, mostrando toda a cronologia e detalhes de cada filme.\n\nEntão:",
+                  contentParagraph1,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
@@ -51,8 +55,7 @@ class AboutPage extends StatelessWidget {
                 ),
                 SizedBox(height: zLayoutSpacerM),
                 Text(
-                  "PROJETO CRIADO APENAS PARA ESTUDO DE UMA TECNOLODIA, TOTALMENTE INDEPENDENTE, SEM FINS LUCRATIVOS OU QUALQUER VÍNCULO COM A MARVEL STUDIOS"
-                      .toUpperCase(),
+                  contentParagraph2.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
@@ -62,7 +65,7 @@ class AboutPage extends StatelessWidget {
                 ZDividerWidget(),
                 SizedBox(height: zLayoutSpacerL),
                 Text(
-                  "Sobre as informações exibidas na aplicação".toUpperCase(),
+                  contentParagraph3.toUpperCase(),
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -71,12 +74,9 @@ class AboutPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(right: 16),
-                      child: SvgPicture.asset(
-                        "assets/images/logo_theMovieDB.svg",
-                        color: Colors.black,
-                        width: 50,
-                      ),
+                      width: logoSizeWidth,
+                      padding: EdgeInsets.only(right: zLayoutPaddingM),
+                      child: Image.asset(logoTheMovieDB),
                     ),
                     Flexible(
                       child: Container(
@@ -84,7 +84,7 @@ class AboutPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Os dados exibidos de cada filme, foram consumidos de um serviço disponibilizado pela The Movie DB de forma gratuita.",
+                              contentParagraph4,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
@@ -100,7 +100,7 @@ class AboutPage extends StatelessWidget {
                 ZDividerWidget(),
                 SizedBox(height: zLayoutSpacerL),
                 Text(
-                  "Clique no link abaixo para visualizar toda a etapa de construção do projeto, a arquitetura utilizada, o layout, a metodologia utilizada na gestão de tarefas, e até mesmo ter acesso ao repositório do projeto e telas no figma.",
+                  contentParagraph5,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
@@ -108,7 +108,7 @@ class AboutPage extends StatelessWidget {
                 ),
                 SizedBox(height: zLayoutSpacerXL),
                 Text(
-                  "Ações".toUpperCase(),
+                  actionTitle.toUpperCase(),
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -116,27 +116,21 @@ class AboutPage extends StatelessWidget {
                 Row(
                   children: [
                     ZActionButton(
-                      textButton: "Apresentação\ndo Projeto",
-                      iconButton: "assets/icons/icon_file.svg",
-                      actionButton: () {
-                        print("pdf");
-                      },
+                      textButton: projectTextButton,
+                      iconButton: projectIconButton,
+                      actionButton: () => _launchURL(projectLinkButton),
+                    ),
+                    SizedBox(width: zLayoutSpacerS),
+                    ZActionButton(
+                      textButton: layoutTextButton,
+                      iconButton: layoutIconButton,
+                      actionButton: () => _launchURL(layoutLinkButton),
                     ),
                     SizedBox(width: 8),
                     ZActionButton(
-                      textButton: "Protótipo",
-                      iconButton: "assets/icons/icon_figma.svg",
-                      actionButton: () {
-                        print("figma");
-                      },
-                    ),
-                    SizedBox(width: 8),
-                    ZActionButton(
-                      textButton: "Repositório GIT",
-                      iconButton: "assets/icons/icon_git.svg",
-                      actionButton: () {
-                        print("git");
-                      },
+                      textButton: gitTextButton,
+                      iconButton: gitIconButton,
+                      actionButton: () => _launchURL(gitLinkButton),
                     ),
                   ],
                 )
