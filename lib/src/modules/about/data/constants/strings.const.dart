@@ -14,12 +14,15 @@ const String actionTitle = "Ações";
 
 const String projectTextButton = "Apresentação\ndo Projeto";
 const String projectIconButton = "assets/icons/icon_file.svg";
-const String projectLinkButton = "http://globo.com";
+const String projectLinkButton =
+    "https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_presentation.pdf";
 
 const String layoutTextButton = "Protótipos";
 const String layoutIconButton = "assets/icons/icon_figma.svg";
-const String layoutLinkButton = "http://globo.com";
+const String layoutLinkButton =
+    "https://www.figma.com/file/8c4RvS7ufoEdsgV3HwYhBb/Shared-Marvel-MCU-APP?node-id=0%3A1";
 
 const String gitTextButton = "Repositório GIT";
 const String gitIconButton = "assets/icons/icon_git.svg";
-const String gitLinkButton = "http://globo.com";
+const String gitLinkButton =
+    "https://github.com/caruzojr/works_marvelmcu_mobile_app";
