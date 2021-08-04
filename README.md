@@ -1,6 +1,6 @@
 # MARVEL MCU APP
 
-<center><img src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" data-canonical-src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" width="500" /></center>
+<p align="center"><img src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" data-canonical-src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" width="500" /></p>
 
 ## COMO RODAR O PROJETO
 Depois de realizar um GET no repositório, abra o terminal e na pasta do projeto, rode os seguintes comandos para realizar o build inicial.  
