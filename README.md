@@ -11,4 +11,4 @@ Apenas é um projeto para **ESTUDO** de uma aplicação mobile utlizando **FLUTT
 <br/>
 <br/>
 
-<center><img src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" data-canonical-src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" width="500" /></center>
+<p align="center"><img src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" data-canonical-src="https://caruzojr.com.br/projects/marvel_mcu_app/marvel_mcu_mockup.png" width="500" /></p>
